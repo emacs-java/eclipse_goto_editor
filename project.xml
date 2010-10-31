@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+<extend>../easystruts/project.xml</extend>
+  <pomVersion>3</pomVersion>
+  <groupId>maven</groupId>
+  <id>maven-eclipsepde-plugin</id>
+  <name>Maven Eclipse PDE Plugin</name>
+  <currentVersion>1.0-SNAPSHOT</currentVersion>
+  <description>Eclipse PDE plugin for Maven</description>
+  <shortDescription>Eclipse PDE plugin for Maven</shortDescription>
+  
+  <developers>
+    <developer>
+      <name>Emmanuel Boudrant</name>
+      <id>eboudrant</id>
+      <email>emmanuel.boudrant@free.Fr</email>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  
+  <dependencies>
+
+		<dependency>
+			<groupId>eclipse</groupId>
+			<artifactId>eclipse</artifactId>
+			<version>SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+    
+  </dependencies>
+  
+  
+   <build>
+    <sourceDirectory>src/java</sourceDirectory>
+    <unitTestSourceDirectory>src/test</unitTestSourceDirectory>
+
+    <unitTest>
+      <includes>
+        <include>**/*Test.java</include>
+      </includes>
+    </unitTest>
+
+
+  </build>
+
+</project>

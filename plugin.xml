@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page 
+	    	name="Easy Explore"
+	    	class="org.sf.easyexplore.preferences.EasyExplorePreferencePage"
+    		id="org.sf.asyexplore.preferences.EasyExplorePreferencePage">
+		</page>
+		<page 
+			name="Add a new command"
+			category ="org.sf.asyexplore.preferences.EasyExplorePreferencePage"
+			class="org.sf.easyexplore.preferences.AddCommandPreferencePage"
+			id="org.sf.easyexplore.preferences.AddCommandPreferencePage">
+		</page>
+	</extension>
+ 
+ 
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution
+			objectClass="org.eclipse.core.runtime.IAdaptable"
+			id="org.sf.easyexplore.contribution">
+<!--
+			<visibility>
+				<or>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<objectClass name="org.eclipse.ui.model.IWorkbenchAdapter" />
+					<objectClass name="org.eclipse.jdt.core.ICompilationUnit" />
+					<objectClass name="org.eclipse.core.resources.IProject"/>
+					<objectClass name="org.eclipse.core.resources.IFolder"/>
+					<objectClass name="org.eclipse.core.resources.IFile"/>
+				</or>
+			</visibility> 
+-->
+		<menu
+            id="org.sf.easyexplore.Menu" 
+            path="additions" 
+            label="%ActionSet.name"> 
+            <separator name="group1"/> 
+         </menu> 
+         		<action
+	         class="org.sf.easyexplore.actions.EasyMyCmdAction"
+    	     definitionId="org.sf.easyexplore.actions.EasyMyCmdActionCommand"
+        	 enablesFor="1"
+           icon="icon/easyMyCmd.gif"
+	         id="org.sf.easyexplore.actions.EasyMyCmdAction"
+    	     label="%MyCmdAction.name"
+        	 menubarPath="org.sf.easyexplore.Menu/group1">
+			</action>		
+			<action
+	         class="org.sf.easyexplore.actions.EasyExploreAction"
+	         definitionId="org.sf.easyexplore.actions.EasyExploreActionCommand"
+	         enablesFor="1"
+	         icon="icon/easyexplore.gif"
+	         id="org.sf.easyexplore.actions.EasyExploreAction"
+	         label="%ExploreAction.name"
+	         menubarPath="org.sf.easyexplore.Menu/group1">
+			</action>
+						<action
+	         class="org.sf.easyexplore.actions.EasyEditorAction"
+	         definitionId="org.sf.easyexplore.actions.EasyEditorActionCommand"
+	         enablesFor="1"
+	         icon="icon/easyeditor.gif"
+	        
+	         id="org.sf.easyCexplore.actions.EasyEditorAction"
+	         label="%EditorAction.name"
+	         menubarPath="org.sf.easyexplore.Menu/group1">
+			</action>
+			<action
+	         class="org.sf.easyexplore.actions.EasyTerminalAction"
+	         definitionId="org.sf.easyexplore.actions.EasyTerminalActionCommand"
+	         enablesFor="1"
+	         icon="icon/easycommand.gif"
+	         id="org.sf.easyexplore.actions.EasyTerminalAction"
+	         label="%TerminalAction.name"
+	         menubarPath="org.sf.easyexplore.Menu/group1">
+			</action>	
+			<!-- Celinio Fernandes: extra slot for the MyCmd command -->
+			
+		</objectContribution>
+	</extension>
+    <extension point="org.eclipse.ui.commands">
+	    <category
+	          description="EasyExplore: easy os integration"
+	          id="org.sf.easyexplore.category"
+	          name="EasyExplore"/>
+	    <command
+	          categoryId="org.sf.easyexplore.category"
+	          description="Execute a system command on a file"
+	          id="org.sf.easyexplore.actions.EasyTerminalActionCommand"
+	          name="EasyCommand"/> 
+	    <command
+	          categoryId="org.sf.easyexplore.category"
+	          description="Execute a system editor on a file"
+	          id="org.sf.easyexplore.actions.EasyEditorActionCommand"
+	          name="EasyEditor"/>
+	    <command
+	          categoryId="org.sf.easyexplore.category"
+	          description="Open an explorer on a file"
+	          id="org.sf.easyexplore.actions.EasyExploreActionCommand"
+	          name="EasyExplore"/>
+	            <command
+	          categoryId="org.sf.easyexplore.category"
+	          description="Open a user defined command"
+	          id="org.sf.easyexplore.actions.EasyMyCmdActionCommand"
+	          name="EasyExplore"/>
+ 
+	</extension>
+	 
+	<extension point="org.eclipse.ui.bindings">
+    <key
+          commandId="org.sf.easyexplore.actions.EasyTerminalActionCommand"
+          contextId=" org.eclipse.ui.contexts.dialogAndWindow"
+          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+          sequence="Ctrl+C C"/>
+   <key
+          commandId="org.sf.easyexplore.actions.EasyEditorActionCommand"
+          contextId="org.eclipse.ui.contexts.dialogAndWindow"
+          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+          sequence="Ctrl+C E"/>
+    <key
+          commandId="org.sf.easyexplore.actions.EasyMyCmdActionCommand"
+          contextId="org.eclipse.ui.contexts.dialogAndWindow"
+          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+          sequence="Ctrl+C D"/>
+  <key
+          commandId="org.sf.easyexplore.actions.EasyExploreActionCommand"
+          contextId="org.eclipse.ui.contexts.dialogAndWindow"
+          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+          sequence="Ctrl+C F"/>
+	</extension>
+    <extension point = "org.eclipse.ui.actionSets"	   >
+	   <actionSet id="whatever0"
+		 label="Easy explore group" 
+		   visible="true">
+		   <menu id="here"
+			   label="%ActionSet.name"
+			   path="navigate/additions"> 
+			   <separator name="slot1"/>
+			   <separator name="slot2"/>
+   			   <separator name="slot3"/>
+   			    <separator name="slot4"/>
+		   </menu>
+		   		   <action id="org.sf.easyexplore.actions.EasyMyCmdActionSet"
+			   menubarPath="navigate/here/slot4"			   
+			   label="%MyCmdAction.name"
+			   tooltip="MyCmd command"
+			   helpContextId="whatever3"
+			   icon="icon/easyMyCmd.gif"
+			     toolbarPath="Open My Command Here"
+			   class="org.sf.easyexplore.actions.EasyMyCmdAction"
+			     definitionId="org.sf.easyexplore.actions.EasyMyCmdActionCommand"
+			   >				
+		   </action>	
+
+		   <action id="org.sf.easyexplore.actions.EasyTerminalActionSet"
+			   menubarPath="navigate/here/slot3"			   
+			   label="%TerminalAction.name"
+			   tooltip="Opens a Terminal from here"
+			   helpContextId="whatever2"
+			      toolbarPath="Open Terminal here"
+			   icon="icon/easycommand.gif"
+			   class="org.sf.easyexplore.actions.EasyTerminalAction"
+			 definitionId="org.sf.easyexplore.actions.EasyTerminalActionCommand"
+			 
+			   >				
+		   </action>			   
+		      <action id="org.sf.easyexplore.actions.EasyEditorActionSet"
+			   menubarPath="navigate/here/slot2"			   
+			   label="%EditorAction.name"
+			   tooltip="Opens a Editor from here"
+			   helpContextId="whatever2"
+			   icon="icon/easyeditor.gif"
+			       toolbarPath="Edit With the configred system editor"
+			   class="org.sf.easyexplore.actions.EasyEditorAction"
+			    definitionId="org.sf.easyexplore.actions.EasyEditorActionCommand"
+			  >				
+		   </action>			   
+	 <action id="org.sf.easyexplore.actions.EasyExploreActionSet"
+			   menubarPath="navigate/here/slot1"
+			   label="%ExploreAction.name"
+			   tooltip="Opens FileManager from here"
+			   helpContextId="whatever1"
+			   icon="icon/easyexplore.gif"
+			   toolbarPath="open FileManager here"
+		      class="org.sf.easyexplore.actions.EasyExploreAction"
+		       definitionId="org.sf.easyexplore.actions.EasyExploreActionCommand"
+			   >				
+		   </action>	
+ 	   </actionSet>
+   </extension>
+ 
+     
+   
+          
+    <!--
+     <extension
+           point="org.eclipse.ui.perspectiveExtensions">
+        <perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+        </perspectiveExtension>
+        <perspectiveExtension targetID="org.eclipse.debug.ui.DebugPerspective">
+           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+        </perspectiveExtension>
+        <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaBrowsingPerspective">
+           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+        </perspectiveExtension>
+        <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+        </perspectiveExtension>
+        <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaHierarchyPerspective">
+           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+        </perspectiveExtension>
+        <perspectiveExtension targetID="org.eclipse.pde.ui.PDEPerspective">
+           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+        </perspectiveExtension>
+        <perspectiveExtension targetID="org.eclipse.team.cvs.ui.cvsPerspective">
+           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+        </perspectiveExtension>
+        <perspectiveExtension targetID="org.eclipse.team.ui.TeamSynchronizingPerspective">
+           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+        </perspectiveExtension>
+     </extension>
+     -->
+</plugin>
