@@ -98,9 +98,9 @@ public class EasyEditorAction extends EasyBaseAction {
 	}
 
 	// while the editorProcess is still running
-	// refresh workspace every 30s
+	// refresh workspace every 2s
 	class RefreshWorkSpaceBeforeEditorProcessExit implements Runnable {
-		int frequence = 1000;
+		int frequence = 2000;
 
 		Process p;
 
