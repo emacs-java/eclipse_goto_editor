@@ -130,7 +130,7 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
     protected void initializeDefaultPreferences(IPreferenceStore store) {
         String osName = System.getProperty("os.name");
 
-        String defaultExplorer = "shell_open_command %d";
+        String defaultExplorer = "filemanager_open_command %d";
         if (osName.indexOf("Windows") != -1) {
             defaultExplorer = "explorer.exe /n, /e, %d";
         } else if (osName.indexOf("Mac") != -1) {

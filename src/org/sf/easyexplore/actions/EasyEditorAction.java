@@ -1,25 +1,25 @@
 package org.sf.easyexplore.actions;
 
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.action.IAction;
-import org.eclipse.ui.IEditorPart;
 import org.sf.easyexplore.EasyExplorePlugin;
 
 import util.CmdUtil;
 
 /**
- * 有个小问题，当同时用系统的编辑器打开两个以上项目中的文件时
  * 
  * @author jixiuf
- *
+ * 
  */
 public class EasyEditorAction extends EasyBaseAction {
- 
+
 	public void runAction(IAction action) {
 		try {
 			String cmdPattern = EasyExplorePlugin.getDefault().getEditorCmd();
@@ -27,84 +27,114 @@ public class EasyEditorAction extends EasyBaseAction {
 
 			// usually editor in windows can't edit a dir ,so ,if you select a
 			// dir but file ,do noting
-			if (System.getProperty("os.name").toLowerCase().contains("windows")
-					&& selectedFile != null && selectedFile.exists()
-					&& selectedFile.isDirectory()) {
-				return;
-			}
+			// if
+			// (System.getProperty("os.name").toLowerCase().contains("windows")
+			// && selectedFile != null && selectedFile.exists()
+			// && selectedFile.isDirectory()) {
+			// return;
+			// }
 
-			Process p = CmdUtil.exec(cmdPattern, getSelectedFile());
-			isEditorProcessRunning = true;
-			new Thread(new WaitForExitOfEditorProcess(p)).start();
-			new Thread(new RefreshWorkSpaceBeforeEditorProcessExit()).start();
+			Process p = CmdUtil.exec(cmdPattern, selectedFile);
+			process.add(p);
+			new Thread(new WaitForExitOfEditorProcess(p, selectedFile)).start();
+			new Thread(new RefreshWorkSpaceBeforeEditorProcessExit(
+					selectedFile, p)).start();
 		} catch (Throwable e) {
 			EasyExplorePlugin.log(e);
 		}
 
 	}
 
-	boolean isEditorProcessRunning = false;
+	/**
+	 * refresh f ,<br/> f can be a file ,or if it is a file ,reload it ,if it
+	 * is a directory ,reload all files under this directory
+	 * 
+	 * @param f
+	 */
+	public void refresh(File f) {
+		try {
+			if (f.isFile()) {
+				IFile[] iFiles = ResourcesPlugin.getWorkspace().getRoot()
+						.findFilesForLocationURI(f.toURI());
+				for (IFile ifile : iFiles) {
+					ifile.refreshLocal(IResource.DEPTH_ZERO, null);
+				}
+			} else {
+				IContainer[] containers = ResourcesPlugin.getWorkspace()
+						.getRoot().findContainersForLocationURI(f.toURI());
+				for (IContainer ct : containers) {
+					ct.refreshLocal(IResource.DEPTH_INFINITE, null);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	Set<Process> process = new HashSet<Process>();
 
 	// start a thread wait for the exit of the new process
 	// after that ,it will try refresh the project and rebuild
 	class WaitForExitOfEditorProcess implements Runnable {
 		Process p = null;
 
-		public WaitForExitOfEditorProcess(Process p) {
+		File selectedFile;
+
+		public WaitForExitOfEditorProcess(Process p, File selectedFile) {
 			this.p = p;
+			this.selectedFile = selectedFile;
 		}
 
 		public void run() {
 			try {
 				p.waitFor();
-				isEditorProcessRunning = false;
-				ResourcesPlugin.getWorkspace().getRoot().refreshLocal(
-						IResource.DEPTH_INFINITE, null);
-				ResourcesPlugin.getWorkspace().build(
-						IncrementalProjectBuilder.CLEAN_BUILD, null);
+				refresh(selectedFile);
 			} catch (InterruptedException e) {
-				isEditorProcessRunning = false;
-				e.printStackTrace();
-			} catch (CoreException e) {
-				isEditorProcessRunning = false;
 				e.printStackTrace();
 			} finally {
-				isEditorProcessRunning = false;
+				process.remove(p);
 			}
-
 		}
-
 	}
 
 	// while the editorProcess is still running
 	// refresh workspace every 30s
 	class RefreshWorkSpaceBeforeEditorProcessExit implements Runnable {
-		int frequence = 30 * 1000;
+		int frequence = 1000;
 
-		public RefreshWorkSpaceBeforeEditorProcessExit(int seconds) {
+		Process p;
+
+		File selectedFile;
+
+		public RefreshWorkSpaceBeforeEditorProcessExit(int seconds,
+				File selectedfile, Process p) {
+			this(selectedfile, p);
 			this.frequence = seconds * 1000;
 		}
 
-		public RefreshWorkSpaceBeforeEditorProcessExit() {
-
+		public RefreshWorkSpaceBeforeEditorProcessExit(File selectedFile,
+				Process p) {
+			this.selectedFile = selectedFile;
+			this.p = p;
 		}
 
 		public void run() {
-			while (isEditorProcessRunning) {
+			while (process.contains(p)) {
 				try {
-					ResourcesPlugin.getWorkspace().getRoot().refreshLocal(
-							IResource.DEPTH_INFINITE, null);
-					Thread.sleep(frequence);
-				} catch (CoreException e) {
-					e.printStackTrace();
+					refresh(selectedFile);
+					// ResourcesPlugin.getWorkspace().getRoot().findMember()
+					// ResourcesPlugin.getWorkspace().getRoot().refreshLocal(
+					// IResource.DEPTH_INFINITE, null);
+					if (selectedFile.isDirectory()) {
+						Thread.sleep(frequence * 5);
+					} else {
+						Thread.sleep(frequence);
+					}
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-
 			}
 		}
 	}
-
-
 
 }

@@ -7,7 +7,7 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.sf.easyexplore.EasyExplorePlugin;
 
 /**
- * @author Celinio Fernandes New command class
+ * @author    Jixiuf New command class
  * 
  */
 

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.sf.easyexplore; singleton=true
-Bundle-Version: 1.3
+Bundle-Version: 1.3.2
 Bundle-Vendor: %providerName
 Bundle-ClassPath: .
 Bundle-Activator: org.sf.easyexplore.EasyExplorePlugin

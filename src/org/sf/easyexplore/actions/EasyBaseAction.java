@@ -56,8 +56,11 @@ public  abstract  class   EasyBaseAction     implements IObjectActionDelegate,
 		}
 		if ("unknown".equals(selected) || null == selected) {
 			IFile activedEditorFile = getActiveEditorFile();
+			
+			
 			if (activedEditorFile != null) {
 				file = activedEditorFile.getLocation().toFile();
+
 				return file;
 			} else {
 				MessageDialog.openInformation(new Shell(), "EasyExplore",
