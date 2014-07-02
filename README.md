@@ -14,8 +14,10 @@ the project and rebuild . exacept that ,it will refresh every 30s before the
 editor is closed
 
 # screenshot
-  https://raw.githubusercontent.com/emacs-java/eclipse_easyexplore/master/screenshots/screenshot1.gif
-  https://raw.githubusercontent.com/emacs-java/eclipse_easyexplore/master/screenshots/screenshot2.gif
+![Easy Explore](https://raw.githubusercontent.com/emacs-java/eclipse_easyexplore/master/screenshots/screenshot1.gif)
+![Easy Explore](https://raw.githubusercontent.com/emacs-java/eclipse_easyexplore/master/screenshots/screenshot2.gif)
+  
+  
 # keybinding 
 使用方式             快捷键
 editor           Ctrl+c e
