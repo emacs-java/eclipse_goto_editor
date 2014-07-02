@@ -1,22 +1,22 @@
-package org.sf.easyexplore.actions;
+package org.jf.goeditor.actions;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.ui.IActionDelegate;
-import org.sf.easyexplore.EasyExplorePlugin;
+import org.jf.goeditor.GoExplorePlugin;
 
 import util.CmdUtil;
 
-public class EasyTerminalAction extends EasyBaseAction {
+public class GoTerminalAction extends GoBaseAction {
 
 	/**
 	 * @see IActionDelegate#run(IAction)
 	 */
 	public void runAction(IAction action) {
 		try {
-			String cmdPattern = EasyExplorePlugin.getDefault().getTerminal();
+			String cmdPattern = GoExplorePlugin.getDefault().getTerminal();
 			CmdUtil.exec(cmdPattern, getSelectedFile());
 		} catch (Throwable e) {
-			EasyExplorePlugin.log(e);
+			GoExplorePlugin.log(e);
 		}
 	}
 

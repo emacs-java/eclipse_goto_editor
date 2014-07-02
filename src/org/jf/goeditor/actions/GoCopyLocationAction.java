@@ -1,4 +1,4 @@
-package org.sf.easyexplore.actions;
+package org.jf.goeditor.actions;
 
 
 import org.eclipse.jdt.core.JavaModelException;
@@ -12,13 +12,13 @@ import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
-import org.sf.easyexplore.CopyFullyQualifiedClassNameCore;
-import org.sf.easyexplore.Messages;
+import org.jf.goeditor.CopyFullyQualifiedClassNameCore;
+import org.jf.goeditor.Messages;
 
 /**
  * @author Markus Gebhard
  */
-public abstract class EasyCopyLocationAction implements IActionDelegate {
+public abstract class GoCopyLocationAction implements IActionDelegate {
 
   private IWorkbenchPart activePart;
   private Clipboard clipboard;

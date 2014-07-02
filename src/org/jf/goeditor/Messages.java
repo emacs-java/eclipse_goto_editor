@@ -1,4 +1,4 @@
-package org.sf.easyexplore;
+package org.jf.goeditor;
 
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
  * @author Markus Gebhard
  */
 public class Messages {
-  private static final String BUNDLE_NAME = "rg.sf.easyexplore.messages";//$NON-NLS-1$
+  private static final String BUNDLE_NAME = "rg.jf.goeditor.messages";//$NON-NLS-1$
 
   private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME);
 
@@ -21,4 +21,4 @@ public class Messages {
       return '!' + key + '!';
          }
   }
-} 
+}

@@ -1,9 +1,10 @@
 /*
  * ====================================================================
- * The Apache Software License, Version 1.1
+ * The Apache Software License, Version 2.0
  *
- * Copyright (c) 1999-2006 Emmanuel Boudrant, Cross Systems, nexB Inc. 
+ * Copyright (c) 1999-2006 Emmanuel Boudrant, Cross Systems, nexB Inc.
  * All rights reserved.
+ * Copyright (c) 2010-2014 纪秀峰  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -24,7 +25,7 @@
  *    Alternately, this acknowlegement may appear in the software itself,
  *    if and wherever such third-party acknowlegements normally appear.
  *
- * 4. The names "EsayStruts", "EasyExplore", "nexB", "Struts", and 
+ * 4. The names "EsayStruts", "EasyExplore", "nexB", "Struts", and
  *    "EasyEclipse" must not be used to endorse or promote products derived
  *    from this software without prior written permission. For written
  *    permission, please contact info@nexb.com.

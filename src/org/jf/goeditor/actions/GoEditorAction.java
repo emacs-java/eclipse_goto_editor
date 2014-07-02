@@ -1,4 +1,4 @@
-package org.sf.easyexplore.actions;
+package org.jf.goeditor.actions;
 
 import java.io.File;
 import java.util.HashSet;
@@ -9,20 +9,20 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.action.IAction;
-import org.sf.easyexplore.EasyExplorePlugin;
+import org.jf.goeditor.GoExplorePlugin;
 
 import util.CmdUtil;
 
 /**
- * 
+ *
  * @author jixiuf
- * 
+ *
  */
-public class EasyEditorAction extends EasyBaseAction {
+public class GoEditorAction extends GoBaseAction {
 
 	public void runAction(IAction action) {
 		try {
-			String cmdPattern = EasyExplorePlugin.getDefault().getEditorCmd();
+			String cmdPattern = GoExplorePlugin.getDefault().getEditorCmd();
 			File selectedFile = getSelectedFile();
 
 			// usually editor in windows can't edit a dir ,so ,if you select a
@@ -40,7 +40,7 @@ public class EasyEditorAction extends EasyBaseAction {
 			new Thread(new RefreshWorkSpaceBeforeEditorProcessExit(
 					selectedFile, p)).start();
 		} catch (Throwable e) {
-			EasyExplorePlugin.log(e);
+			GoExplorePlugin.log(e);
 		}
 
 	}
@@ -48,7 +48,7 @@ public class EasyEditorAction extends EasyBaseAction {
 	/**
 	 * refresh f ,<br/> f can be a file ,or if it is a file ,reload it ,if it
 	 * is a directory ,reload all files under this directory
-	 * 
+	 *
 	 * @param f
 	 */
 	public void refresh(File f) {

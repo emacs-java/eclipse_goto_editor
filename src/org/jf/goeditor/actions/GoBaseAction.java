@@ -1,4 +1,4 @@
-package org.sf.easyexplore.actions;
+package org.jf.goeditor.actions;
 
 import java.io.File;
 
@@ -21,9 +21,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
-import org.sf.easyexplore.EasyExplorePlugin;
+import org.jf.goeditor.GoExplorePlugin;
 
-public  abstract  class   EasyBaseAction     implements IObjectActionDelegate,
+public  abstract  class   GoBaseAction     implements IObjectActionDelegate,
 		IWorkbenchWindowActionDelegate   {
 
 	protected Object selected = null;
@@ -31,11 +31,11 @@ public  abstract  class   EasyBaseAction     implements IObjectActionDelegate,
 	protected Class  selectedClass = null;
 
 	public void run(IAction action) {
-	 
+
 	 	runAction(action);
 	}
 
- 
+
 
 	public void setActivePart(IAction action, IWorkbenchPart workbenchpart) {
 
@@ -47,7 +47,7 @@ public  abstract  class   EasyBaseAction     implements IObjectActionDelegate,
 	// in actived editor ,or null
 
 	public File getSelectedFile() {
- 
+
 		File file = null;
 		if (selected instanceof IResource) {
 			file = new File(((IResource) selected).getLocation().toOSString());
@@ -56,16 +56,16 @@ public  abstract  class   EasyBaseAction     implements IObjectActionDelegate,
 		}
 		if ("unknown".equals(selected) || null == selected) {
 			IFile activedEditorFile = getActiveEditorFile();
-			
-			
+
+
 			if (activedEditorFile != null) {
 				file = activedEditorFile.getLocation().toFile();
 
 				return file;
 			} else {
-				MessageDialog.openInformation(new Shell(), "EasyExplore",
-						"Unable to run command " + selectedClass.getName());
-				EasyExplorePlugin.log("Unable to run command " + selectedClass);
+				MessageDialog.openInformation(new Shell(), "GoExplore",
+						"Unable to run this command " );
+				GoExplorePlugin.log("Unable to run this command " );
 				return null;
 			}
 		}
@@ -85,7 +85,7 @@ public  abstract  class   EasyBaseAction     implements IObjectActionDelegate,
 		}
 		return file;
 	}
-	
+
 	/**
 	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
 	 */
@@ -116,7 +116,7 @@ public  abstract  class   EasyBaseAction     implements IObjectActionDelegate,
 
 			}
 		} catch (Throwable e) {
-			EasyExplorePlugin.log(e);
+			GoExplorePlugin.log(e);
 		}
 	}
 
@@ -137,7 +137,7 @@ public  abstract  class   EasyBaseAction     implements IObjectActionDelegate,
 	}
 
 	public void init(IWorkbenchWindow arg0) {
-		 
-	}	 
+
+	}
 
 }

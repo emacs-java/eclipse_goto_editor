@@ -1,27 +1,27 @@
-package org.sf.easyexplore.preferences;
+package org.jf.goeditor.preferences;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-import org.sf.easyexplore.EasyExplorePlugin;
+import org.jf.goeditor.GoExplorePlugin;
 
 /**
  * @author    Jixiuf New command class
- * 
+ *
  */
 
 public class AddCommandPreferencePage extends FieldEditorPreferencePage
 		implements IWorkbenchPreferencePage {
 
 	// CF: the identifiers for the preferences
-	public static final String P_MyCmd = "org.sf.easyexplore.myCmdPreference";
+	public static final String P_MyCmd = "org.jf.goeditor.myCmdPreference";
 
-	public static final String P_MyCmd_TITLE = "org.sf.easyexplore.myCmdPreference";
+	public static final String P_MyCmd_TITLE = "org.jf.goeditor.myCmdPreference";
 
 	public AddCommandPreferencePage() {
 		super(GRID);
-		setPreferenceStore(EasyExplorePlugin.getDefault().getPreferenceStore());
+		setPreferenceStore(GoExplorePlugin.getDefault().getPreferenceStore());
 		setDescription("Define your own command here,\nfor example <notepad %f>  or <explorer %d>\n%f is the file you selected (maybe a dir),\n%d is the dir your selected ,but when you select a file not dir ,then %d means the parent dir\n"
 				+ "\nwhen you select nothing ,\n       %f means the file opened in the actived editor\n       %d means the parent dir of the file,\nwhen no editor is actived it do nothing\n" +
 						"\nwhen both %f and %d don't exists in the command filed ,%f will be appended ");
@@ -30,7 +30,7 @@ public class AddCommandPreferencePage extends FieldEditorPreferencePage
 
 	/**
 	 * CF: Method to add the field editors to the page
-	 * 
+	 *
 	 */
 	public void createFieldEditors() {
 		addField(new StringFieldEditor(P_MyCmd_TITLE, "&Title:",

@@ -1,4 +1,4 @@
-package org.sf.easyexplore;
+package org.jf.goeditor;
 
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IMethod;

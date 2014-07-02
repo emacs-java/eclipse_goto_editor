@@ -4,13 +4,13 @@ import java.io.File;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.sf.easyexplore.EasyExplorePlugin;
+import org.jf.goeditor.GoExplorePlugin;
 
 public class CmdUtil {
 
 	/**
 	 * check the syntax of the cmdPattern from Preference Page
-	 * 
+	 *
 	 * @param cmdPattern
 	 */
 	private static void check(String cmdPattern) {
@@ -20,10 +20,10 @@ public class CmdUtil {
 	}
 
 	/**
-	 * return null if selectFile don't exists on disk ��if selectedFile is a file
-	 * then return it's parent�� if selectFile is a dir then return itself
+	 * return null if selectFile don't exists on disk if selectedFile is a file
+	 * then return it's parent if selectFile is a dir then return itself
 	 * actually this method will get get real File that %d means
-	 * 
+	 *
 	 * @param selectedFile
 	 * @return
 	 */
@@ -39,9 +39,9 @@ public class CmdUtil {
 	}
 
 	/**
-	 * 
+	 *
 	 * this method will replace the %f and %d with the real FilePath
-	 * 
+	 *
 	 * @param cmdPattern
 	 *            the command get from preference page like "notepad %f"
 	 * @param selectedFile
@@ -61,19 +61,19 @@ public class CmdUtil {
 						selectedFile).getAbsolutePath());
 			}
 		}
-		EasyExplorePlugin.log(cmdAndParams);
+		GoExplorePlugin.log(cmdAndParams);
 		return cmdAndParams;
 	}
 
 	/**
 	 * execute the command
-	 * 
+	 *
 	 * @param cmdPattern
 	 * @param selectedFile
 	 */
 	public static Process exec(String cmdPattern, File selectedFile) {
 		if (selectedFile == null) {
-			MessageDialog.openInformation(new Shell(), " Easy Explorer",
+			MessageDialog.openInformation(new Shell(), " Go Explorer",
 					"please select the file or dir to handled by");
 			return null;
 		}
@@ -81,9 +81,9 @@ public class CmdUtil {
 		try {
 			return Runtime.getRuntime().exec(cmd);
 		} catch (Throwable t) {
-			MessageDialog.openInformation(new Shell(), "EasyExplore",
+			MessageDialog.openInformation(new Shell(), "GoExplore",
 					"Unable to execute " +cmdPattern);
-			EasyExplorePlugin.log(t);
+			GoExplorePlugin.log(t);
 		}
 
 		return null;

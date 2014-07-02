@@ -1,17 +1,17 @@
-package org.sf.easyexplore.actions;
+package org.jf.goeditor.actions;
 
 import java.io.File;
 
 import org.eclipse.jface.action.IAction;
-import org.sf.easyexplore.EasyExplorePlugin;
+import org.jf.goeditor.GoExplorePlugin;
 
 import util.CmdUtil;
 
-public class EasyExploreAction extends EasyBaseAction {
+public class GoExploreAction extends GoBaseAction {
 
 	public void runAction(IAction action) {
 		try {
-			String cmdPattern = EasyExplorePlugin.getDefault().getExplorer();
+			String cmdPattern = GoExplorePlugin.getDefault().getExplorer();
 			File selectedFile = getSelectedFile();
 			if (System.getProperty("os.name").toLowerCase().contains("windows")
 					&& cmdPattern.toLowerCase().contains("explorer")
@@ -24,7 +24,7 @@ public class EasyExploreAction extends EasyBaseAction {
 			}
 			CmdUtil.exec(cmdPattern, getSelectedFile());
 		} catch (Throwable e) {
-			EasyExplorePlugin.log(e);
+			GoExplorePlugin.log(e);
 		}
 	}
 }

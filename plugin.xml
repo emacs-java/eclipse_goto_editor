@@ -3,15 +3,15 @@
 <plugin>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page 
-	    	name="Easy Explore"
-	    	class="org.sf.easyexplore.preferences.EasyExplorePreferencePage"
-    		id="org.sf.asyexplore.preferences.EasyExplorePreferencePage">
+	    	name="Go Editor"
+	    	class="org.jf.goeditor.preferences.GoExplorePreferencePage"
+    		id="org.jf.goeditor.preferences.GoExplorePreferencePage">
 		</page>
 		<page 
 			name="Add a new command"
-			category ="org.sf.asyexplore.preferences.EasyExplorePreferencePage"
-			class="org.sf.easyexplore.preferences.AddCommandPreferencePage"
-			id="org.sf.easyexplore.preferences.AddCommandPreferencePage">
+			category ="org.jf.goeditor.preferences.GoExplorePreferencePage"
+			class="org.jf.goeditor.preferences.AddCommandPreferencePage"
+			id="org.jf.goeditor.preferences.AddCommandPreferencePage">
 		</page>
 	</extension>
  
@@ -19,7 +19,7 @@
 	<extension point="org.eclipse.ui.popupMenus">
 		<objectContribution
 			objectClass="org.eclipse.core.runtime.IAdaptable"
-			id="org.sf.easyexplore.contribution">
+			id="org.jf.goeditor.contribution">
 <!--
 			<visibility>
 				<or>
@@ -33,47 +33,47 @@
 			</visibility> 
 -->
 		<menu
-            id="org.sf.easyexplore.Menu" 
+            id="org.jf.goeditor.Menu" 
             path="additions" 
             label="%ActionSet.name"> 
             <separator name="group1"/> 
          </menu> 
          		<action
-	         class="org.sf.easyexplore.actions.EasyMyCmdAction"
-    	     definitionId="org.sf.easyexplore.actions.EasyMyCmdActionCommand"
+	         class="org.jf.goeditor.actions.GoMyCmdAction"
+    	     definitionId="org.jf.goeditor.actions.GoMyCmdActionCommand"
         	 enablesFor="1"
-           icon="icon/easyMyCmd.gif"
-	         id="org.sf.easyexplore.actions.EasyMyCmdAction"
+           icon="icon/goMyCmd.gif"
+	         id="org.jf.goeditor.actions.GoMyCmdAction"
     	     label="%MyCmdAction.name"
-        	 menubarPath="org.sf.easyexplore.Menu/group1">
+        	 menubarPath="org.jf.goeditor.Menu/group1">
 			</action>		
 			<action
-	         class="org.sf.easyexplore.actions.EasyExploreAction"
-	         definitionId="org.sf.easyexplore.actions.EasyExploreActionCommand"
+	         class="org.jf.goeditor.actions.GoExploreAction"
+	         definitionId="org.jf.goeditor.actions.GoExploreActionCommand"
 	         enablesFor="1"
-	         icon="icon/easyexplore.gif"
-	         id="org.sf.easyexplore.actions.EasyExploreAction"
+	         icon="icon/goexplore.gif"
+	         id="org.jf.goeditor.actions.GoExploreAction"
 	         label="%ExploreAction.name"
-	         menubarPath="org.sf.easyexplore.Menu/group1">
+	         menubarPath="org.jf.goeditor.Menu/group1">
 			</action>
 						<action
-	         class="org.sf.easyexplore.actions.EasyEditorAction"
-	         definitionId="org.sf.easyexplore.actions.EasyEditorActionCommand"
+	         class="org.jf.goeditor.actions.GoEditorAction"
+	         definitionId="org.jf.goeditor.actions.GoEditorActionCommand"
 	         enablesFor="1"
-	         icon="icon/easyeditor.gif"
+	         icon="icon/goeditor.gif"
 	        
-	         id="org.sf.easyCexplore.actions.EasyEditorAction"
+	         id="org.sf.goCexplore.actions.GoEditorAction"
 	         label="%EditorAction.name"
-	         menubarPath="org.sf.easyexplore.Menu/group1">
+	         menubarPath="org.jf.goeditor.Menu/group1">
 			</action>
 			<action
-	         class="org.sf.easyexplore.actions.EasyTerminalAction"
-	         definitionId="org.sf.easyexplore.actions.EasyTerminalActionCommand"
+	         class="org.jf.goeditor.actions.GoTerminalAction"
+	         definitionId="org.jf.goeditor.actions.GoTerminalActionCommand"
 	         enablesFor="1"
-	         icon="icon/easycommand.gif"
-	         id="org.sf.easyexplore.actions.EasyTerminalAction"
+	         icon="icon/gocommand.gif"
+	         id="org.jf.goeditor.actions.GoTerminalAction"
 	         label="%TerminalAction.name"
-	         menubarPath="org.sf.easyexplore.Menu/group1">
+	         menubarPath="org.jf.goeditor.Menu/group1">
 			</action>	
 			<!-- Celinio Fernandes: extra slot for the MyCmd command -->
 			
@@ -81,57 +81,57 @@
 	</extension>
     <extension point="org.eclipse.ui.commands">
 	    <category
-	          description="EasyExplore: easy os integration"
-	          id="org.sf.easyexplore.category"
-	          name="EasyExplore"/>
+	          description="GoExplore: go os integration"
+	          id="org.jf.goeditor.category"
+	          name="GoExplore"/>
 	    <command
-	          categoryId="org.sf.easyexplore.category"
+	          categoryId="org.jf.goeditor.category"
 	          description="Execute a system command on a file"
-	          id="org.sf.easyexplore.actions.EasyTerminalActionCommand"
-	          name="EasyCommand"/> 
+	          id="org.jf.goeditor.actions.GoTerminalActionCommand"
+	          name="GoCommand"/> 
 	    <command
-	          categoryId="org.sf.easyexplore.category"
+	          categoryId="org.jf.goeditor.category"
 	          description="Execute a system editor on a file"
-	          id="org.sf.easyexplore.actions.EasyEditorActionCommand"
-	          name="EasyEditor"/>
+	          id="org.jf.goeditor.actions.GoEditorActionCommand"
+	          name="GoEditor"/>
 	    <command
-	          categoryId="org.sf.easyexplore.category"
+	          categoryId="org.jf.goeditor.category"
 	          description="Open an explorer on a file"
-	          id="org.sf.easyexplore.actions.EasyExploreActionCommand"
-	          name="EasyExplore"/>
+	          id="org.jf.goeditor.actions.GoExploreActionCommand"
+	          name="GoExplore"/>
 	            <command
-	          categoryId="org.sf.easyexplore.category"
+	          categoryId="org.jf.goeditor.category"
 	          description="Open a user defined command"
-	          id="org.sf.easyexplore.actions.EasyMyCmdActionCommand"
-	          name="EasyExplore"/>
+	          id="org.jf.goeditor.actions.GoMyCmdActionCommand"
+	          name="GoExplore"/>
  
 	</extension>
 	 
 	<extension point="org.eclipse.ui.bindings">
     <key
-          commandId="org.sf.easyexplore.actions.EasyTerminalActionCommand"
+          commandId="org.jf.goeditor.actions.GoTerminalActionCommand"
           contextId=" org.eclipse.ui.contexts.dialogAndWindow"
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="Ctrl+C C"/>
    <key
-          commandId="org.sf.easyexplore.actions.EasyEditorActionCommand"
+          commandId="org.jf.goeditor.actions.GoEditorActionCommand"
           contextId="org.eclipse.ui.contexts.dialogAndWindow"
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="Ctrl+C E"/>
     <key
-          commandId="org.sf.easyexplore.actions.EasyMyCmdActionCommand"
+          commandId="org.jf.goeditor.actions.GoMyCmdActionCommand"
           contextId="org.eclipse.ui.contexts.dialogAndWindow"
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="Ctrl+C D"/>
   <key
-          commandId="org.sf.easyexplore.actions.EasyExploreActionCommand"
+          commandId="org.jf.goeditor.actions.GoExploreActionCommand"
           contextId="org.eclipse.ui.contexts.dialogAndWindow"
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="Ctrl+C F"/>
 	</extension>
     <extension point = "org.eclipse.ui.actionSets"	   >
 	   <actionSet id="whatever0"
-		 label="Easy explore group" 
+		 label="Go explore group" 
 		   visible="true">
 		   <menu id="here"
 			   label="%ActionSet.name"
@@ -141,50 +141,50 @@
    			   <separator name="slot3"/>
    			    <separator name="slot4"/>
 		   </menu>
-		   		   <action id="org.sf.easyexplore.actions.EasyMyCmdActionSet"
+		   		   <action id="org.jf.goeditor.actions.GoMyCmdActionSet"
 			   menubarPath="navigate/here/slot4"			   
 			   label="%MyCmdAction.name"
 			   tooltip="MyCmd command"
 			   helpContextId="whatever3"
-			   icon="icon/easyMyCmd.gif"
+			   icon="icon/goMyCmd.gif"
 			     toolbarPath="Open My Command Here"
-			   class="org.sf.easyexplore.actions.EasyMyCmdAction"
-			     definitionId="org.sf.easyexplore.actions.EasyMyCmdActionCommand"
+			   class="org.jf.goeditor.actions.GoMyCmdAction"
+			     definitionId="org.jf.goeditor.actions.GoMyCmdActionCommand"
 			   >				
 		   </action>	
 
-		   <action id="org.sf.easyexplore.actions.EasyTerminalActionSet"
+		   <action id="org.jf.goeditor.actions.GoTerminalActionSet"
 			   menubarPath="navigate/here/slot3"			   
 			   label="%TerminalAction.name"
 			   tooltip="Opens a Terminal from here"
 			   helpContextId="whatever2"
 			      toolbarPath="Open Terminal here"
-			   icon="icon/easycommand.gif"
-			   class="org.sf.easyexplore.actions.EasyTerminalAction"
-			 definitionId="org.sf.easyexplore.actions.EasyTerminalActionCommand"
+			   icon="icon/gocommand.gif"
+			   class="org.jf.goeditor.actions.GoTerminalAction"
+			 definitionId="org.jf.goeditor.actions.GoTerminalActionCommand"
 			 
 			   >				
 		   </action>			   
-		      <action id="org.sf.easyexplore.actions.EasyEditorActionSet"
+		      <action id="org.jf.goeditor.actions.GoEditorActionSet"
 			   menubarPath="navigate/here/slot2"			   
 			   label="%EditorAction.name"
 			   tooltip="Opens a Editor from here"
 			   helpContextId="whatever2"
-			   icon="icon/easyeditor.gif"
+			   icon="icon/goeditor.gif"
 			       toolbarPath="Edit With the configred system editor"
-			   class="org.sf.easyexplore.actions.EasyEditorAction"
-			    definitionId="org.sf.easyexplore.actions.EasyEditorActionCommand"
+			   class="org.jf.goeditor.actions.GoEditorAction"
+			    definitionId="org.jf.goeditor.actions.GoEditorActionCommand"
 			  >				
 		   </action>			   
-	 <action id="org.sf.easyexplore.actions.EasyExploreActionSet"
+	 <action id="org.jf.goeditor.actions.GoExploreActionSet"
 			   menubarPath="navigate/here/slot1"
 			   label="%ExploreAction.name"
 			   tooltip="Opens FileManager from here"
 			   helpContextId="whatever1"
-			   icon="icon/easyexplore.gif"
+			   icon="icon/goexplore.gif"
 			   toolbarPath="open FileManager here"
-		      class="org.sf.easyexplore.actions.EasyExploreAction"
-		       definitionId="org.sf.easyexplore.actions.EasyExploreActionCommand"
+		      class="org.jf.goeditor.actions.GoExploreAction"
+		       definitionId="org.jf.goeditor.actions.GoExploreActionCommand"
 			   >				
 		   </action>	
  	   </actionSet>
@@ -197,28 +197,28 @@
      <extension
            point="org.eclipse.ui.perspectiveExtensions">
         <perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
-           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.debug.ui.DebugPerspective">
-           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaBrowsingPerspective">
-           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
-           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaHierarchyPerspective">
-           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.pde.ui.PDEPerspective">
-           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.team.cvs.ui.cvsPerspective">
-           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.team.ui.TeamSynchronizingPerspective">
-           <actionSet id="org.sf.easyexplore.contribution.actionSet"/>
+           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
         </perspectiveExtension>
      </extension>
      -->

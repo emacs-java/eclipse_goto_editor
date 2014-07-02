@@ -1,4 +1,4 @@
-package org.sf.easyexplore;
+package org.jf.goeditor;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -12,29 +12,29 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.jf.goeditor.preferences.AddCommandPreferencePage;
+import org.jf.goeditor.preferences.GoExplorePreferencePage;
 import org.osgi.framework.BundleContext;
-import org.sf.easyexplore.preferences.AddCommandPreferencePage;
-import org.sf.easyexplore.preferences.EasyExplorePreferencePage;
 
 /**
  * Added support for a comamnd prompt and updated the default for openining
  * Explorer in right folder. Thanks to Chris Gittings and anonymous on page :
  * http://eclipse-plugins.info/eclipse/plugin_comments.jsp?id=192
  */
-public class EasyExplorePlugin extends AbstractUIPlugin {
+public class GoExplorePlugin extends AbstractUIPlugin {
     // The shared instance.
-    private static EasyExplorePlugin plugin;
+    private static GoExplorePlugin plugin;
 
     private ResourceBundle resourceBundle;
 
-    public EasyExplorePlugin() {
+    public GoExplorePlugin() {
         plugin = this;
         try {
             resourceBundle = ResourceBundle
-                    .getBundle("org.sf.easyexplore.EasyExplorePluginResources");
+                    .getBundle("org.jf.goeditor.GoExplorePluginResources");
         } catch (MissingResourceException x) {
             // throw new NullPointerException("unnable to load resources
-            // org.sf.easyexplore.EasyExplorePluginResources");
+            // org.jf.goeditor.GoExplorePluginResources");
         }
     }
 
@@ -56,7 +56,7 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
     /**
      * Returns the shared instance.
      */
-    public static EasyExplorePlugin getDefault() {
+    public static GoExplorePlugin getDefault() {
         return plugin;
     }
 
@@ -72,7 +72,7 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
      * found.
      */
     public static String getResourceString(String key) {
-        ResourceBundle bundle = EasyExplorePlugin.getDefault()
+        ResourceBundle bundle = GoExplorePlugin.getDefault()
                 .getResourceBundle();
         String res = null;
         try {
@@ -91,8 +91,8 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
     }
 
     static public void log(Object msg) {
-        ILog log = EasyExplorePlugin.getDefault().getLog();
-        Status status = new Status(IStatus.INFO, EasyExplorePlugin.getDefault()
+        ILog log = GoExplorePlugin.getDefault().getLog();
+        Status status = new Status(IStatus.INFO, GoExplorePlugin.getDefault()
                 .getBundle().getSymbolicName(), IStatus.ERROR, msg + "\n", null);
 
         log.log(status);
@@ -103,19 +103,19 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
         for (String m : msg) {
             strb.append(m);
         }
-        ILog log = EasyExplorePlugin.getDefault().getLog();
-        Status status = new Status(IStatus.INFO, EasyExplorePlugin.getDefault()
+        ILog log = GoExplorePlugin.getDefault().getLog();
+        Status status = new Status(IStatus.INFO, GoExplorePlugin.getDefault()
                 .getBundle().getSymbolicName(), IStatus.ERROR, strb.toString()
                 + "\n", null);
         log.log(status);
     }
 
     static public void log(Throwable ex) {
-        ILog log = EasyExplorePlugin.getDefault().getLog();
+        ILog log = GoExplorePlugin.getDefault().getLog();
         StringWriter stringWriter = new StringWriter();
         ex.printStackTrace(new PrintWriter(stringWriter));
         String msg = stringWriter.getBuffer().toString();
-        Status status = new Status(IStatus.ERROR, EasyExplorePlugin
+        Status status = new Status(IStatus.ERROR, GoExplorePlugin
                 .getDefault().getBundle().getSymbolicName(), IStatus.ERROR,
                 msg, null);
         log.log(status);
@@ -125,7 +125,7 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#initializeDefaultPreferences(org.eclipse.jface.preference.IPreferenceStore)
      * @author Celinio Fernandes : method to set up the default values for the
      *         preferences for the plug-in
-     * 
+     *
      */
     protected void initializeDefaultPreferences(IPreferenceStore store) {
         String osName = System.getProperty("os.name");
@@ -139,7 +139,7 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
             defaultExplorer = "nautilus %d";
 
         }
-        store.setDefault(EasyExplorePreferencePage.P_EXPLORER, defaultExplorer);
+        store.setDefault(GoExplorePreferencePage.P_EXPLORER, defaultExplorer);
         String defaultEditor = "SystemEditorName %f";
         if (osName.indexOf("Windows") != -1) {
             defaultEditor = "notepad.exe %f";
@@ -151,7 +151,7 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
                 editor = "gvim";
             defaultEditor = editor + "   %f";
         }
-        store.setDefault(EasyExplorePreferencePage.P_EDITOR, defaultEditor);
+        store.setDefault(GoExplorePreferencePage.P_EDITOR, defaultEditor);
 
         String defaultTerminal = "shell_open_command %d";
         if (osName.indexOf("Windows") != -1) {
@@ -160,9 +160,9 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
             defaultTerminal = "open %d";
         } else if (osName.indexOf("nux") != -1) {
             defaultTerminal = "urxvtc -cd  %d";
- 
+
         }
-        store.setDefault(EasyExplorePreferencePage.P_TERMINAL, defaultTerminal);
+        store.setDefault(GoExplorePreferencePage.P_TERMINAL, defaultTerminal);
 
         String defaultMyCmd = "Type  here your command";
         store.setDefault(AddCommandPreferencePage.P_MyCmd, defaultMyCmd);
@@ -170,38 +170,38 @@ public class EasyExplorePlugin extends AbstractUIPlugin {
 
     /**
      * Return the target explorer program configured in
-     * EasyExplorePreferencePage.
-     * 
+     * GoExplorePreferencePage.
+     *
      * @return String
      */
     public String getExplorer() {
         return getPreferenceStore().getString(
-                EasyExplorePreferencePage.P_EXPLORER);
+                GoExplorePreferencePage.P_EXPLORER);
     }
 
     /**
      * Return the target command program configured in
-     * EasyExplorePreferencePage.
-     * 
+     * GoExplorePreferencePage.
+     *
      * @return String
      */
     public String getTerminal() {
         String cmdPattern = getPreferenceStore().getString(
-                EasyExplorePreferencePage.P_TERMINAL);
+                GoExplorePreferencePage.P_TERMINAL);
 
         return cmdPattern;
     }
 
     public String getEditorCmd() {
         String cmdPattern = getPreferenceStore().getString(
-                EasyExplorePreferencePage.P_EDITOR);
+                GoExplorePreferencePage.P_EDITOR);
         return cmdPattern;
     }
 
     /**
      * @author: Celinio Fernandes Return the target random program configured in
-     *          EasyExplorePreferencePage.
-     * 
+     *          GoExplorePreferencePage.
+     *
      * @return String
      */
     public String getMyCmd() {
