@@ -19,10 +19,11 @@ editor is closed
   
   
 # keybinding 
-使用方式             快捷键
-| editor   |         Ctrl+c e |
-| terminal |         Ctrl+c c |
-| explore  |         Ctrl+c f |
+使用方式   |           快捷键 
+---------- | -------------------
+ editor    |         Ctrl+c e 
+ terminal  |         Ctrl+c c 
+ explore   |         Ctrl+c f 
 
 另外点工具栏上的四个图标(其中一个留给你自定义命令)
 右键有一个Easy..菜单，里面有四个选项
