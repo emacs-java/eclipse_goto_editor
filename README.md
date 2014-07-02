@@ -5,6 +5,7 @@ system editor(customable).
 Just select a resource and launch the [Go ...] menu item from this resources context pop-up menu.
 You can setup your preferred browser or finder program in Eclipse preferences.
 This plugin has been tested on win32, linux and MacOSX panther and Tiger platforms.
+This product includes software developed by the EasyStruts project team (http://easystruts.sf.net).
 
 I add new function to it
 you can not only "Explorer" but alsa open a terminal ,and edit the selected File
