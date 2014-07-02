@@ -1,4 +1,4 @@
-This little plugin helps you to browse resources with the 'Explorer' of your platform from 
+This little plugin helps you to browse resources with the 'Explorer' of your platform from
 Eclipse package explorer or resource navigators.
 Just select a resource and launch the [Easy Explore...] menu item from this resources context pop-up menu.
 You can setup your preferred browser or finder program in Eclipse preferences.
@@ -13,14 +13,14 @@ you can not only "Explorer" but alsa open a terminal ,and edit the selected File
 after you finished edit the file out of Eclipse and closed the editor (like emacs) ,Eclipse will refresh
 the project and rebuild . exacept that ,it will refresh every 30s before the editor is closed
 
-使用方式             快捷键            
+使用方式             快捷键
 editor           Ctrl+c e
 terminal         Ctrl+c c
 explore          Ctrl+c f
 
 另外点工具栏上的四个图标(其中一个留给你自定义命令)
 右键有一个Easy..菜单，里面有四个选项
-点菜单栏上的Navigate 
+点菜单栏上的Navigate
 
 本人<jixiuf@gmail.com>下载了easyexplore1.2.1 的源代码，
 然后重现添加了一些功能，这些功能在windows 上或许没太大用处，但是在Linux用处或许会很大
@@ -31,3 +31,6 @@ explore          Ctrl+c f
                    这个特点可以使许多喜欢用emacs ,vim 等编辑器的程序员更容易将之与eclipse 结合
     2 可以在选中的目录、文件处打开终端（Windows是就是cmd窗口，这个用处可能不大。linux 上那就另说了）
     3就是easyexplore 上原有的功能，用文件浏览器打开选中的目录
+
+另有博文介绍
+http://blog.csdn.net/jixiuffff/article/details/5978393
