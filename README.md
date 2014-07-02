@@ -1,18 +1,22 @@
+# Easy Explore
 This little plugin helps you to browse resources with the 'Explorer' of your platform from
 Eclipse package explorer or resource navigators.
 Just select a resource and launch the [Easy Explore...] menu item from this resources context pop-up menu.
 You can setup your preferred browser or finder program in Eclipse preferences.
 This plugin has been tested on win32, linux and MacOSX panther and Tiger platforms.
 
+I add new function to it
+you can not only "Explorer" but alsa open a terminal ,and edit the selected File
+out of Eclipse with your preferred editor
+after you finished edit the file out of Eclipse and closed the editor (like
+emacs) ,Eclipse will refresh
+the project and rebuild . exacept that ,it will refresh every 30s before the
+editor is closed
 
-===================================================
-actually you can't found the source  from easy struts ,I got the source  from it and edit it so this one is diffenert from easy struts
-
-then  i add new function to it
-you can not only "Explorer" but alsa open a terminal ,and edit the selected File out of Eclipse
-after you finished edit the file out of Eclipse and closed the editor (like emacs) ,Eclipse will refresh
-the project and rebuild . exacept that ,it will refresh every 30s before the editor is closed
-
+# screenshot
+  https://raw.githubusercontent.com/emacs-java/eclipse_easyexplore/master/screenshots/screenshot1.gif
+  https://raw.githubusercontent.com/emacs-java/eclipse_easyexplore/master/screenshots/screenshot2.gif
+# keybinding 
 使用方式             快捷键
 editor           Ctrl+c e
 terminal         Ctrl+c c
