@@ -70,7 +70,7 @@ and Open shell in current selected file path.
    </license>
 
    <url>
-      <update label="goeditor" url="http://emacs-java.github.io/eclipse_go_editor/update-site/"/>
+      <update label="goeditor" url="http://emacs-java.github.io/eclipse_goto_editor/update-site/"/>
    </url>
 
    <plugin
