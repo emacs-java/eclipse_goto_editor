@@ -42,3 +42,8 @@ editor is closed.
 
 另有博文介绍
 http://blog.csdn.net/jixiuffff/article/details/5978393
+# build
+  用eclipse 导入3 个项目，点击org.jf.goeditor.site里面site.xml的build all 来构建
+  所有
+  把site 目录下的所有,push 到gh-pages分支
+ ref http://suhuanzheng7784877.iteye.com/blog/941305
