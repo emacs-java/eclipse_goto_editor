@@ -1,254 +1,60 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh">
+<html>
 <head>
-<title>README</title>
-<!-- 2014-07-02 Wed 15:45 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="纪秀峰" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  /*]]>*/-->
-</style>
+<title>org.jf.goeditor.site</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>@import url("web/site.css");</style>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2014 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+	var returnval = 0;
+	var stylesheet, xmlFile, cache, doc;
+	function init(){
+		// NSCP 7.1+ / Mozilla 1.4.1+ / Safari
+		// Use the standard DOM Level 2 technique, if it is supported
+		if (document.implementation && document.implementation.createDocument) {
+			xmlFile = document.implementation.createDocument("", "", null);
+			stylesheet = document.implementation.createDocument("", "", null);
+			if (xmlFile.load){
+				xmlFile.load("site.xml");
+				stylesheet.load("web/site.xsl");
+			} else {
+				alert("Document could not be loaded by browser.");
+			}
+			xmlFile.addEventListener("load", transform, false);
+			stylesheet.addEventListener("load", transform, false);
+		}
+		//IE 6.0+ solution
+		else if (window.ActiveXObject) {
+			xmlFile = new ActiveXObject("msxml2.DOMDocument.3.0");
+			xmlFile.async = false;
+			xmlFile.load("site.xml");
+			stylesheet = new ActiveXObject("msxml2.FreeThreadedDOMDocument.3.0");
+			stylesheet.async = false;
+			stylesheet.load("web/site.xsl");
+			cache = new ActiveXObject("msxml2.XSLTemplate.3.0");
+			cache.stylesheet = stylesheet;
+			transformData();
+		}
+	}
+	// separate transformation function for IE 6.0+
+	function transformData(){
+		var processor = cache.createProcessor();
+		processor.input = xmlFile;
+		processor.transform();
+		data.innerHTML = processor.output;
+	}
+	// separate transformation function for NSCP 7.1+ and Mozilla 1.4.1+ 
+	function transform(){
+		returnval+=1;
+		if (returnval==2){
+			var processor = new XSLTProcessor();
+			processor.importStylesheet(stylesheet); 
+			doc = processor.transformToDocument(xmlFile);
+			document.getElementById("data").innerHTML = doc.documentElement.innerHTML;
+		}
+	}
 </script>
 </head>
-<body>
-<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
- <a accesskey="h" href=""> 站点地图 </a>
- |
- <a accesskey="H" href="sitemap.html"> 首页 </a>
-</div><div id="content">
-<h1 class="title">README</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">Go Editor</a></li>
-<li><a href="#sec-2">screenshot</a></li>
-<li><a href="#sec-3">keybinding</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Go Editor</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-This little plugin helps you to browse resources with the 'Explorer' of your platform from
-Eclipse package explorer or resource navigators and Open selected file with your
-system editor(customable).
-Just select a resource and launch the [Go &#x2026;] menu item from this resources context pop-up menu.
-You can setup your preferred browser or finder program in Eclipse preferences.
-This plugin has been tested on win32, linux and MacOSX panther and Tiger platforms.
-This product includes software developed by the EasyStruts project team (<a href="http://easystruts.sf.net">http://easystruts.sf.net</a>).
-</p>
-
-<p>
-I add new function to it
-you can not only "Explorer" but alsa open a terminal ,and edit the selected File
-out of Eclipse with your preferred editor
-after you finished edit the file out of Eclipse and closed the editor (like
-emacs) ,Eclipse will refresh the project and it will refresh each 30s before the
-editor is closed.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">screenshot</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-<img src="https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot1.gif" alt="screenshot1.gif" />
-<img src="https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot2.gif" alt="screenshot2.gif" />
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">keybinding</h2>
-<div class="outline-text-2" id="text-3">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="left">使用方式</th>
-<th scope="col" class="left">快捷键</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="left">editor</td>
-<td class="left">Ctrl+c e</td>
-</tr>
-
-<tr>
-<td class="left">terminal</td>
-<td class="left">Ctrl+c c</td>
-</tr>
-
-<tr>
-<td class="left">explore</td>
-<td class="left">Ctrl+c f</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-另外点工具栏上的四个图标(其中一个留给你自定义命令)
-右键有一个Go..菜单，里面有四个选项
-点菜单栏上的Navigate
-</p>
-
-<p>
-本人&lt;jixiuf@gmail.com&gt;下载了easyexplore1.0.4 的源代码(<a href="http://sourceforge.net/projects/easystruts/files/">http://sourceforge.net/projects/easystruts/files/</a>)，
-然后重现添加了一些功能，这些功能在windows 上或许没太大用处，但是在Linux用处或许会很大
-实现的功能,
-    1 使用系统编辑器打开在eclipse 中选中的文件或目录（linux 上有些编辑器可以对目录进行编辑，如emacs）,
-           优点是，当系统编辑器关闭时，eclipse会刷新项目所有文件,并重新编译项目。
-                   如果没关闭编辑器，则每隔30s刷新一次直到关闭为止。
-                   这个特点可以使许多喜欢用emacs ,vim 等编辑器的程序员更容易将之与eclipse 结合
-    2 可以在选中的目录、文件处打开终端（Windows是就是cmd窗口，这个用处可能不大。linux 上那就另说了）
-    3就是easyexplore 上原有的功能，用文件浏览器打开选中的目录
-</p>
-
-<p>
-另有博文介绍
-<a href="http://blog.csdn.net/jixiuffff/article/details/5978393">http://blog.csdn.net/jixiuffff/article/details/5978393</a>
-</p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: 纪秀峰 (<a href="mailto:jixiuf@gmail.com">jixiuf@gmail.com</a>)</p>
-<p class="date">Date: </p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.5c)</p>
-<p class="validation"></p>
-</div>
+<body onload="init();">
+<!--[insert static HTML here]-->
+<div id="data"><!-- this is where the transformed data goes --></div>
 </body>
 </html>
