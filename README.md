@@ -1,7 +1,8 @@
-# Go Explore
+# Go Editor 
 This little plugin helps you to browse resources with the 'Explorer' of your platform from
-Eclipse package explorer or resource navigators.
-Just select a resource and launch the [Go Explore...] menu item from this resources context pop-up menu.
+Eclipse package explorer or resource navigators and Open selected file with your
+system editor(customable).
+Just select a resource and launch the [Go ...] menu item from this resources context pop-up menu.
 You can setup your preferred browser or finder program in Eclipse preferences.
 This plugin has been tested on win32, linux and MacOSX panther and Tiger platforms.
 
@@ -9,9 +10,8 @@ I add new function to it
 you can not only "Explorer" but alsa open a terminal ,and edit the selected File
 out of Eclipse with your preferred editor
 after you finished edit the file out of Eclipse and closed the editor (like
-emacs) ,Eclipse will refresh
-the project and rebuild . exacept that ,it will refresh every 30s before the
-editor is closed
+emacs) ,Eclipse will refresh the project and it will refresh each 30s before the
+editor is closed.
 
 # screenshot
 ![Go Explore](https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot1.gif)
@@ -29,7 +29,7 @@ editor is closed
 右键有一个Go..菜单，里面有四个选项
 点菜单栏上的Navigate
 
-本人<jixiuf@gmail.com>下载了easyexplore1.2.1 的源代码，
+本人<jixiuf@gmail.com>下载了easyexplore1.0.4 的源代码(http://sourceforge.net/projects/easystruts/files/)，
 然后重现添加了一些功能，这些功能在windows 上或许没太大用处，但是在Linux用处或许会很大
 实现的功能,
     1 使用系统编辑器打开在eclipse 中选中的文件或目录（linux 上有些编辑器可以对目录进行编辑，如emacs）,
