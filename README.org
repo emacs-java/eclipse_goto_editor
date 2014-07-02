@@ -15,7 +15,7 @@ emacs) ,Eclipse will refresh the project and it will refresh each 30s before the
 editor is closed.
 
 * screenshot
-https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot1.gif
+https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot1.jpg
 https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot2.gif
   
 
