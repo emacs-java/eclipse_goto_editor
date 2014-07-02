@@ -1,4 +1,4 @@
-# Go Editor 
+* Go Editor 
 This little plugin helps you to browse resources with the 'Explorer' of your platform from
 Eclipse package explorer or resource navigators and Open selected file with your
 system editor(customable).
@@ -14,17 +14,17 @@ after you finished edit the file out of Eclipse and closed the editor (like
 emacs) ,Eclipse will refresh the project and it will refresh each 30s before the
 editor is closed.
 
-# screenshot
-![Go Explore](https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot1.gif)
-![Go Explore](https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot2.gif)
+* screenshot
+https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot1.gif
+https://raw.githubusercontent.com/emacs-java/eclipse_go_editor/master/screenshots/screenshot2.gif
   
-  
-# keybinding 
-使用方式   |           快捷键 
----------- | -------------------
- editor    |         Ctrl+c e 
- terminal  |         Ctrl+c c 
- explore   |         Ctrl+c f 
+
+* keybinding 
+|使用方式   |           快捷键| 
+|---------- | -----------------|
+| editor    |         Ctrl+c e| 
+| terminal  |         Ctrl+c c |
+| explore   |         Ctrl+c f |
 
 另外点工具栏上的四个图标(其中一个留给你自定义命令)
 右键有一个Go..菜单，里面有四个选项
