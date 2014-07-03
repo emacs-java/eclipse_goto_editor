@@ -1,4 +1,4 @@
-package org.jf.goeditor;
+package org.jf.gotoeditor;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -12,8 +12,8 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.jf.goeditor.preferences.AddCommandPreferencePage;
-import org.jf.goeditor.preferences.GoExplorePreferencePage;
+import org.jf.gotoeditor.preferences.AddCommandPreferencePage;
+import org.jf.gotoeditor.preferences.GotoExplorePreferencePage;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -21,13 +21,13 @@ import org.osgi.framework.BundleContext;
  * Explorer in right folder. Thanks to Chris Gittings and anonymous on page :
  * http://eclipse-plugins.info/eclipse/plugin_comments.jsp?id=192
  */
-public class GoExplorePlugin extends AbstractUIPlugin {
+public class GotoExplorePlugin extends AbstractUIPlugin {
     // The shared instance.
-    private static GoExplorePlugin plugin;
+    private static GotoExplorePlugin plugin;
 
     private ResourceBundle resourceBundle;
 
-    public GoExplorePlugin() {
+    public GotoExplorePlugin() {
         plugin = this;
         try {
             resourceBundle = ResourceBundle
@@ -56,7 +56,7 @@ public class GoExplorePlugin extends AbstractUIPlugin {
     /**
      * Returns the shared instance.
      */
-    public static GoExplorePlugin getDefault() {
+    public static GotoExplorePlugin getDefault() {
         return plugin;
     }
 
@@ -72,7 +72,7 @@ public class GoExplorePlugin extends AbstractUIPlugin {
      * found.
      */
     public static String getResourceString(String key) {
-        ResourceBundle bundle = GoExplorePlugin.getDefault()
+        ResourceBundle bundle = GotoExplorePlugin.getDefault()
                 .getResourceBundle();
         String res = null;
         try {
@@ -91,8 +91,8 @@ public class GoExplorePlugin extends AbstractUIPlugin {
     }
 
     static public void log(Object msg) {
-        ILog log = GoExplorePlugin.getDefault().getLog();
-        Status status = new Status(IStatus.INFO, GoExplorePlugin.getDefault()
+        ILog log = GotoExplorePlugin.getDefault().getLog();
+        Status status = new Status(IStatus.INFO, GotoExplorePlugin.getDefault()
                 .getBundle().getSymbolicName(), IStatus.ERROR, msg + "\n", null);
 
         log.log(status);
@@ -103,19 +103,19 @@ public class GoExplorePlugin extends AbstractUIPlugin {
         for (String m : msg) {
             strb.append(m);
         }
-        ILog log = GoExplorePlugin.getDefault().getLog();
-        Status status = new Status(IStatus.INFO, GoExplorePlugin.getDefault()
+        ILog log = GotoExplorePlugin.getDefault().getLog();
+        Status status = new Status(IStatus.INFO, GotoExplorePlugin.getDefault()
                 .getBundle().getSymbolicName(), IStatus.ERROR, strb.toString()
                 + "\n", null);
         log.log(status);
     }
 
     static public void log(Throwable ex) {
-        ILog log = GoExplorePlugin.getDefault().getLog();
+        ILog log = GotoExplorePlugin.getDefault().getLog();
         StringWriter stringWriter = new StringWriter();
         ex.printStackTrace(new PrintWriter(stringWriter));
         String msg = stringWriter.getBuffer().toString();
-        Status status = new Status(IStatus.ERROR, GoExplorePlugin
+        Status status = new Status(IStatus.ERROR, GotoExplorePlugin
                 .getDefault().getBundle().getSymbolicName(), IStatus.ERROR,
                 msg, null);
         log.log(status);
@@ -139,19 +139,19 @@ public class GoExplorePlugin extends AbstractUIPlugin {
             defaultExplorer = "nautilus %d";
 
         }
-        store.setDefault(GoExplorePreferencePage.P_EXPLORER, defaultExplorer);
+        store.setDefault(org.jf.gotoeditor.preferences.GotoExplorePreferencePage.P_EXPLORER, defaultExplorer);
         String defaultEditor = "SystemEditorName %f";
         if (osName.indexOf("Windows") != -1) {
             defaultEditor = "notepad.exe %f";
         } else if (osName.indexOf("Mac") != -1) {
-            defaultEditor = "open -e %f";
+            defaultEditor = "open -W -n -a /Applications/TextEdit.app %f";
         } else if (osName.indexOf("nux") != -1) {
             String editor = System.getenv("EDITOR");
             if (editor == null || "".equals(editor))
                 editor = "gvim";
             defaultEditor = editor + "   %f";
         }
-        store.setDefault(GoExplorePreferencePage.P_EDITOR, defaultEditor);
+        store.setDefault(org.jf.gotoeditor.preferences.GotoExplorePreferencePage.P_EDITOR, defaultEditor);
 
         String defaultTerminal = "shell_open_command %d";
         if (osName.indexOf("Windows") != -1) {
@@ -162,7 +162,7 @@ public class GoExplorePlugin extends AbstractUIPlugin {
             defaultTerminal = "urxvtc -cd  %d";
 
         }
-        store.setDefault(GoExplorePreferencePage.P_TERMINAL, defaultTerminal);
+        store.setDefault(GotoExplorePreferencePage.P_TERMINAL, defaultTerminal);
 
         String defaultMyCmd = "Type  here your command";
         store.setDefault(AddCommandPreferencePage.P_MyCmd, defaultMyCmd);
@@ -170,37 +170,37 @@ public class GoExplorePlugin extends AbstractUIPlugin {
 
     /**
      * Return the target explorer program configured in
-     * GoExplorePreferencePage.
+     * GotoExplorePreferencePage.
      *
      * @return String
      */
     public String getExplorer() {
         return getPreferenceStore().getString(
-                GoExplorePreferencePage.P_EXPLORER);
+                GotoExplorePreferencePage.P_EXPLORER);
     }
 
     /**
      * Return the target command program configured in
-     * GoExplorePreferencePage.
+     * GotoExplorePreferencePage.
      *
      * @return String
      */
     public String getTerminal() {
         String cmdPattern = getPreferenceStore().getString(
-                GoExplorePreferencePage.P_TERMINAL);
+                GotoExplorePreferencePage.P_TERMINAL);
 
         return cmdPattern;
     }
 
     public String getEditorCmd() {
         String cmdPattern = getPreferenceStore().getString(
-                GoExplorePreferencePage.P_EDITOR);
+                GotoExplorePreferencePage.P_EDITOR);
         return cmdPattern;
     }
 
     /**
      * @author: Celinio Fernandes Return the target random program configured in
-     *          GoExplorePreferencePage.
+     *          GotoExplorePreferencePage.
      *
      * @return String
      */

@@ -1,4 +1,4 @@
-package org.jf.goeditor;
+package org.jf.gotoeditor;
 
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
  * @author Markus Gebhard
  */
 public class Messages {
-  private static final String BUNDLE_NAME = "rg.jf.goeditor.messages";//$NON-NLS-1$
+  private static final String BUNDLE_NAME = "org.jf.gotoeditor.messages";//$NON-NLS-1$
 
   private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME);
 

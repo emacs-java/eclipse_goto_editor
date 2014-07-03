@@ -4,7 +4,7 @@ import java.io.File;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.jf.goeditor.GoExplorePlugin;
+import org.jf.gotoeditor.GotoExplorePlugin;
 
 public class CmdUtil {
 
@@ -61,7 +61,7 @@ public class CmdUtil {
 						selectedFile).getAbsolutePath());
 			}
 		}
-		GoExplorePlugin.log(cmdAndParams);
+		GotoExplorePlugin.log(cmdAndParams);
 		return cmdAndParams;
 	}
 
@@ -83,7 +83,7 @@ public class CmdUtil {
 		} catch (Throwable t) {
 			MessageDialog.openInformation(new Shell(), "Goto Explorer",
 					"Unable to execute " +cmdPattern);
-			GoExplorePlugin.log(t);
+			GotoExplorePlugin.log(t);
 		}
 
 		return null;

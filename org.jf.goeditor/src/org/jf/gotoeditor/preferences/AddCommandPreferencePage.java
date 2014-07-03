@@ -1,10 +1,10 @@
-package org.jf.goeditor.preferences;
+package org.jf.gotoeditor.preferences;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-import org.jf.goeditor.GoExplorePlugin;
+import org.jf.gotoeditor.GotoExplorePlugin;
 
 /**
  * @author    Jixiuf New command class
@@ -15,13 +15,13 @@ public class AddCommandPreferencePage extends FieldEditorPreferencePage
 		implements IWorkbenchPreferencePage {
 
 	// CF: the identifiers for the preferences
-	public static final String P_MyCmd = "org.jf.goeditor.myCmdPreference";
+	public static final String P_MyCmd = "org.jf.gotoeditor.myCmdPreference";
 
-	public static final String P_MyCmd_TITLE = "org.jf.goeditor.myCmdPreference";
+	public static final String P_MyCmd_TITLE = "org.jf.gotoeditor.myCmdPreference";
 
 	public AddCommandPreferencePage() {
 		super(GRID);
-		setPreferenceStore(GoExplorePlugin.getDefault().getPreferenceStore());
+		setPreferenceStore(GotoExplorePlugin.getDefault().getPreferenceStore());
 		setDescription("Define your own command here,\nfor example <notepad %f>  or <explorer %d>\n%f is the file you selected (maybe a dir),\n%d is the dir your selected ,but when you select a file not dir ,then %d means the parent dir\n"
 				+ "\nwhen you select nothing ,\n       %f means the file opened in the actived editor\n       %d means the parent dir of the file,\nwhen no editor is actived it do nothing\n" +
 						"\nwhen both %f and %d don't exists in the command filed ,%f will be appended ");

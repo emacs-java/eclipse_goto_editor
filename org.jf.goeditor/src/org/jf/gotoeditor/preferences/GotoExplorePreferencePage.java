@@ -1,10 +1,10 @@
-package org.jf.goeditor.preferences;
+package org.jf.gotoeditor.preferences;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-import org.jf.goeditor.GoExplorePlugin;
+import org.jf.gotoeditor.GotoExplorePlugin;
 
 /**
  * @author Celinio Fernandes Preferences class for the commands executed by the
@@ -12,20 +12,20 @@ import org.jf.goeditor.GoExplorePlugin;
  *
  */
 
-public class GoExplorePreferencePage extends FieldEditorPreferencePage
+public class GotoExplorePreferencePage extends FieldEditorPreferencePage
 		implements IWorkbenchPreferencePage {
 
 	// CF: the identifiers for the preferences
-	public static final String P_EXPLORER = "org.jf.goeditor.targetPreference";
-	public static final String P_EDITOR = "org.jf.goeditor.editorPreference";
-	public static final String P_TERMINAL = "org.jf.goeditor.terminalPreference";
+	public static final String P_EXPLORER = "org.jf.gotoeditor.targetPreference";
+	public static final String P_EDITOR = "org.jf.gotoeditor.editorPreference";
+	public static final String P_TERMINAL = "org.jf.gotoeditor.terminalPreference";
 
 	/*
 	 * CF: set a preference store for the preference page
 	 */
-	public GoExplorePreferencePage() {
+	public GotoExplorePreferencePage() {
 		super(FieldEditorPreferencePage.GRID);
-		setPreferenceStore(GoExplorePlugin.getDefault().getPreferenceStore());
+		setPreferenceStore(GotoExplorePlugin.getDefault().getPreferenceStore());
 		setDescription("Set the operating system commands to open an Explorer and a Terminal . and a Editor to edit the selected file");
 	}
 

@@ -1,4 +1,4 @@
-package org.jf.goeditor.actions;
+package org.jf.gotoeditor.actions;
 
 import java.io.File;
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.jf.goeditor.GoExplorePlugin;
+import org.jf.gotoeditor.GotoExplorePlugin;
 
 import util.CmdUtil;
 
@@ -20,11 +20,11 @@ import util.CmdUtil;
  * @author jixiuf
  *
  */
-public class GoEditorAction extends GoBaseAction {
+public class GotoEditorAction extends GotoBaseAction {
 
 	public void runAction(IAction action) {
 		try {
-			String cmdPattern = GoExplorePlugin.getDefault().getEditorCmd();
+			String cmdPattern = GotoExplorePlugin.getDefault().getEditorCmd();
 			File selectedFile = getSelectedFile();
             if (selectedFile==null) {
             	MessageDialog.openInformation(new Shell(), "GotoEditor",
@@ -41,13 +41,15 @@ public class GoEditorAction extends GoBaseAction {
 			// return;
 			// }
 
+            GotoExplorePlugin.log(selectedFile.toString());
 			Process p = CmdUtil.exec(cmdPattern, selectedFile);
 			process.add(p);
+            
 			new Thread(new WaitForExitOfEditorProcess(p, selectedFile)).start();
 			new Thread(new RefreshWorkSpaceBeforeEditorProcessExit(
 					selectedFile, p)).start();
 		} catch (Throwable e) {
-			GoExplorePlugin.log(e);
+			GotoExplorePlugin.log(e);
 		}
 
 	}
@@ -128,7 +130,9 @@ public class GoEditorAction extends GoBaseAction {
 		public void run() {
 			while (process.contains(p)) {
 				try {
+                  
 					refresh(selectedFile);
+                
 					// ResourcesPlugin.getWorkspace().getRoot().findMember()
 					// ResourcesPlugin.getWorkspace().getRoot().refreshLocal(
 					// IResource.DEPTH_INFINITE, null);

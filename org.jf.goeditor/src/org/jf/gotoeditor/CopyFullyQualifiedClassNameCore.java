@@ -1,4 +1,4 @@
-package org.jf.goeditor;
+package org.jf.gotoeditor;
 
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IMethod;

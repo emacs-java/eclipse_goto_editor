@@ -1,19 +1,19 @@
-package org.jf.goeditor.actions;
+package org.jf.gotoeditor.actions;
 
 import java.io.File;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.jf.goeditor.GoExplorePlugin;
+import org.jf.gotoeditor.GotoExplorePlugin;
 
 import util.CmdUtil;
 
-public class GoExploreAction extends GoBaseAction {
+public class GotoExploreAction extends GotoBaseAction {
 
 	public void runAction(IAction action) {
 		try {
-			String cmdPattern = GoExplorePlugin.getDefault().getExplorer();
+			String cmdPattern = GotoExplorePlugin.getDefault().getExplorer();
 			File selectedFile = getSelectedFile();
             if (selectedFile==null) {
             	MessageDialog.openInformation(new Shell(), "Goto Explorer",
@@ -31,7 +31,7 @@ public class GoExploreAction extends GoBaseAction {
 			}
 			CmdUtil.exec(cmdPattern, getSelectedFile());
 		} catch (Throwable e) {
-			GoExplorePlugin.log(e);
+			GotoExplorePlugin.log(e);
 		}
 	}
 }

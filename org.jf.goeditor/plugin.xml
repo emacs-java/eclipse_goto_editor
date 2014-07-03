@@ -3,15 +3,15 @@
 <plugin>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page 
-	    	name="Go Editor"
-	    	class="org.jf.goeditor.preferences.GoExplorePreferencePage"
-    		id="org.jf.goeditor.preferences.GoExplorePreferencePage">
+	    	name="Goto Editor"
+	    	class="org.jf.gotoeditor.preferences.GotoExplorePreferencePage"
+    		id="org.jf.gotoeditor.preferences.GotoExplorePreferencePage">
 		</page>
 		<page 
 			name="Add a new command"
-			category ="org.jf.goeditor.preferences.GoExplorePreferencePage"
-			class="org.jf.goeditor.preferences.AddCommandPreferencePage"
-			id="org.jf.goeditor.preferences.AddCommandPreferencePage">
+			category ="org.jf.gotoeditor.preferences.GotoExplorePreferencePage"
+			class="org.jf.gotoeditor.preferences.AddCommandPreferencePage"
+			id="org.jf.gotoeditor.preferences.AddCommandPreferencePage">
 		</page>
 	</extension>
  
@@ -19,7 +19,7 @@
 	<extension point="org.eclipse.ui.popupMenus">
 		<objectContribution
 			objectClass="org.eclipse.core.runtime.IAdaptable"
-			id="org.jf.goeditor.contribution">
+			id="org.jf.gotoeditor.contribution">
 <!--
 			<visibility>
 				<or>
@@ -33,47 +33,47 @@
 			</visibility> 
 -->
 		<menu
-            id="org.jf.goeditor.Menu" 
+            id="org.jf.gotoeditor.Menu" 
             path="additions" 
             label="%ActionSet.name"> 
             <separator name="group1"/> 
          </menu> 
          		<action
-	         class="org.jf.goeditor.actions.GoMyCmdAction"
-    	     definitionId="org.jf.goeditor.actions.GoMyCmdActionCommand"
+	         class="org.jf.gotoeditor.actions.GotoMyCmdAction"
+    	     definitionId="org.jf.gotoeditor.actions.GotoMyCmdActionCommand"
         	 enablesFor="1"
            icon="icon/goMyCmd.gif"
-	         id="org.jf.goeditor.actions.GoMyCmdAction"
+	         id="org.jf.gotoeditor.actions.GotoMyCmdAction"
     	     label="%MyCmdAction.name"
-        	 menubarPath="org.jf.goeditor.Menu/group1">
+        	 menubarPath="org.jf.gotoeditor.Menu/group1">
 			</action>		
 			<action
-	         class="org.jf.goeditor.actions.GoExploreAction"
-	         definitionId="org.jf.goeditor.actions.GoExploreActionCommand"
+	         class="org.jf.gotoeditor.actions.GotoExploreAction"
+	         definitionId="org.jf.gotoeditor.actions.GotoExploreActionCommand"
 	         enablesFor="1"
 	         icon="icon/goexplore.gif"
-	         id="org.jf.goeditor.actions.GoExploreAction"
+	         id="org.jf.gotoeditor.actions.GotoExploreAction"
 	         label="%ExploreAction.name"
-	         menubarPath="org.jf.goeditor.Menu/group1">
+	         menubarPath="org.jf.gotoeditor.Menu/group1">
 			</action>
 						<action
-	         class="org.jf.goeditor.actions.GoEditorAction"
-	         definitionId="org.jf.goeditor.actions.GoEditorActionCommand"
+	         class="org.jf.gotoeditor.actions.GotoEditorAction"
+	         definitionId="org.jf.gotoeditor.actions.GotoEditorActionCommand"
 	         enablesFor="1"
 	         icon="icon/goeditor.gif"
 	        
-	         id="org.sf.goCexplore.actions.GoEditorAction"
+	         id="org.sf.goCexplore.actions.GotoEditorAction"
 	         label="%EditorAction.name"
-	         menubarPath="org.jf.goeditor.Menu/group1">
+	         menubarPath="org.jf.gotoeditor.Menu/group1">
 			</action>
 			<action
-	         class="org.jf.goeditor.actions.GoTerminalAction"
-	         definitionId="org.jf.goeditor.actions.GoTerminalActionCommand"
+	         class="org.jf.gotoeditor.actions.GotoTerminalAction"
+	         definitionId="org.jf.gotoeditor.actions.GotoTerminalActionCommand"
 	         enablesFor="1"
 	         icon="icon/gocommand.gif"
-	         id="org.jf.goeditor.actions.GoTerminalAction"
+	         id="org.jf.gotoeditor.actions.GotoTerminalAction"
 	         label="%TerminalAction.name"
-	         menubarPath="org.jf.goeditor.Menu/group1">
+	         menubarPath="org.jf.gotoeditor.Menu/group1">
 			</action>	
 			<!-- Celinio Fernandes: extra slot for the MyCmd command -->
 			
@@ -81,57 +81,57 @@
 	</extension>
     <extension point="org.eclipse.ui.commands">
 	    <category
-	          description="GoExplore: go os integration"
-	          id="org.jf.goeditor.category"
-	          name="GoExplore"/>
+	          description="GotoExplore: go os integration"
+	          id="org.jf.gotoeditor.category"
+	          name="GotoExplore"/>
 	    <command
-	          categoryId="org.jf.goeditor.category"
+	          categoryId="org.jf.gotoeditor.category"
 	          description="Execute a system command on a file"
-	          id="org.jf.goeditor.actions.GoTerminalActionCommand"
-	          name="GoCommand"/> 
+	          id="org.jf.gotoeditor.actions.GotoTerminalActionCommand"
+	          name="GotoCommand"/> 
 	    <command
-	          categoryId="org.jf.goeditor.category"
+	          categoryId="org.jf.gotoeditor.category"
 	          description="Execute a system editor on a file"
-	          id="org.jf.goeditor.actions.GoEditorActionCommand"
-	          name="GoEditor"/>
+	          id="org.jf.gotoeditor.actions.GotoEditorActionCommand"
+	          name="GotoEditor"/>
 	    <command
-	          categoryId="org.jf.goeditor.category"
+	          categoryId="org.jf.gotoeditor.category"
 	          description="Open an explorer on a file"
-	          id="org.jf.goeditor.actions.GoExploreActionCommand"
-	          name="GoExplore"/>
+	          id="org.jf.gotoeditor.actions.GotoExploreActionCommand"
+	          name="GotoExplore"/>
 	            <command
-	          categoryId="org.jf.goeditor.category"
+	          categoryId="org.jf.gotoeditor.category"
 	          description="Open a user defined command"
-	          id="org.jf.goeditor.actions.GoMyCmdActionCommand"
-	          name="GoExplore"/>
+	          id="org.jf.gotoeditor.actions.GotoMyCmdActionCommand"
+	          name="GotoExplore"/>
  
 	</extension>
 	 
 	<extension point="org.eclipse.ui.bindings">
     <key
-          commandId="org.jf.goeditor.actions.GoTerminalActionCommand"
+          commandId="org.jf.gotoeditor.actions.GotoTerminalActionCommand"
           contextId=" org.eclipse.ui.contexts.dialogAndWindow"
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="Ctrl+C C"/>
    <key
-          commandId="org.jf.goeditor.actions.GoEditorActionCommand"
+          commandId="org.jf.gotoeditor.actions.GotoEditorActionCommand"
           contextId="org.eclipse.ui.contexts.dialogAndWindow"
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="Ctrl+C E"/>
     <key
-          commandId="org.jf.goeditor.actions.GoMyCmdActionCommand"
+          commandId="org.jf.gotoeditor.actions.GotoMyCmdActionCommand"
           contextId="org.eclipse.ui.contexts.dialogAndWindow"
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="Ctrl+C D"/>
   <key
-          commandId="org.jf.goeditor.actions.GoExploreActionCommand"
+          commandId="org.jf.gotoeditor.actions.GotoExploreActionCommand"
           contextId="org.eclipse.ui.contexts.dialogAndWindow"
           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
           sequence="Ctrl+C F"/>
 	</extension>
     <extension point = "org.eclipse.ui.actionSets"	   >
 	   <actionSet id="whatever0"
-		 label="Go explore group" 
+		 label="Goto explore group" 
 		   visible="true">
 		   <menu id="here"
 			   label="%ActionSet.name"
@@ -141,50 +141,50 @@
    			   <separator name="slot3"/>
    			    <separator name="slot4"/>
 		   </menu>
-		   		   <action id="org.jf.goeditor.actions.GoMyCmdActionSet"
+		   		   <action id="org.jf.gotoeditor.actions.GotoMyCmdActionSet"
 			   menubarPath="navigate/here/slot4"			   
 			   label="%MyCmdAction.name"
 			   tooltip="MyCmd command"
 			   helpContextId="whatever3"
 			   icon="icon/goMyCmd.gif"
 			     toolbarPath="Open My Command Here"
-			   class="org.jf.goeditor.actions.GoMyCmdAction"
-			     definitionId="org.jf.goeditor.actions.GoMyCmdActionCommand"
+			   class="org.jf.gotoeditor.actions.GotoMyCmdAction"
+			     definitionId="org.jf.gotoeditor.actions.GotoMyCmdActionCommand"
 			   >				
 		   </action>	
 
-		   <action id="org.jf.goeditor.actions.GoTerminalActionSet"
+		   <action id="org.jf.gotoeditor.actions.GotoTerminalActionSet"
 			   menubarPath="navigate/here/slot3"			   
 			   label="%TerminalAction.name"
 			   tooltip="Opens a Terminal from here"
 			   helpContextId="whatever2"
 			      toolbarPath="Open Terminal here"
 			   icon="icon/gocommand.gif"
-			   class="org.jf.goeditor.actions.GoTerminalAction"
-			 definitionId="org.jf.goeditor.actions.GoTerminalActionCommand"
+			   class="org.jf.gotoeditor.actions.GotoTerminalAction"
+			 definitionId="org.jf.gotoeditor.actions.GotoTerminalActionCommand"
 			 
 			   >				
 		   </action>			   
-		      <action id="org.jf.goeditor.actions.GoEditorActionSet"
+		      <action id="org.jf.gotoeditor.actions.GotoEditorActionSet"
 			   menubarPath="navigate/here/slot2"			   
 			   label="%EditorAction.name"
 			   tooltip="Opens a Editor from here"
 			   helpContextId="whatever2"
 			   icon="icon/goeditor.gif"
 			       toolbarPath="Edit With the configred system editor"
-			   class="org.jf.goeditor.actions.GoEditorAction"
-			    definitionId="org.jf.goeditor.actions.GoEditorActionCommand"
+			   class="org.jf.gotoeditor.actions.GotoEditorAction"
+			    definitionId="org.jf.gotoeditor.actions.GotoEditorActionCommand"
 			  >				
 		   </action>			   
-	 <action id="org.jf.goeditor.actions.GoExploreActionSet"
+	 <action id="org.jf.gotoeditor.actions.GotoExploreActionSet"
 			   menubarPath="navigate/here/slot1"
 			   label="%ExploreAction.name"
 			   tooltip="Opens FileManager from here"
 			   helpContextId="whatever1"
 			   icon="icon/goexplore.gif"
 			   toolbarPath="open FileManager here"
-		      class="org.jf.goeditor.actions.GoExploreAction"
-		       definitionId="org.jf.goeditor.actions.GoExploreActionCommand"
+		      class="org.jf.gotoeditor.actions.GotoExploreAction"
+		       definitionId="org.jf.gotoeditor.actions.GotoExploreActionCommand"
 			   >				
 		   </action>	
  	   </actionSet>
@@ -197,28 +197,28 @@
      <extension
            point="org.eclipse.ui.perspectiveExtensions">
         <perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
-           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
+           <actionSet id="org.jf.gotoeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.debug.ui.DebugPerspective">
-           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
+           <actionSet id="org.jf.gotoeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaBrowsingPerspective">
-           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
+           <actionSet id="org.jf.gotoeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
-           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
+           <actionSet id="org.jf.gotoeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaHierarchyPerspective">
-           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
+           <actionSet id="org.jf.gotoeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.pde.ui.PDEPerspective">
-           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
+           <actionSet id="org.jf.gotoeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.team.cvs.ui.cvsPerspective">
-           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
+           <actionSet id="org.jf.gotoeditor.contribution.actionSet"/>
         </perspectiveExtension>
         <perspectiveExtension targetID="org.eclipse.team.ui.TeamSynchronizingPerspective">
-           <actionSet id="org.jf.goeditor.contribution.actionSet"/>
+           <actionSet id="org.jf.gotoeditor.contribution.actionSet"/>
         </perspectiveExtension>
      </extension>
      -->

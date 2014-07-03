@@ -1,4 +1,4 @@
-package org.jf.goeditor.actions;
+package org.jf.gotoeditor.actions;
 
 import java.io.File;
 
@@ -21,9 +21,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
-import org.jf.goeditor.GoExplorePlugin;
+import org.jf.gotoeditor.GotoExplorePlugin;
 
-public  abstract  class   GoBaseAction     implements IObjectActionDelegate,
+public  abstract  class   GotoBaseAction     implements IObjectActionDelegate,
                                                       IWorkbenchWindowActionDelegate   {
 
 	protected Object selected = null;
@@ -65,7 +65,7 @@ public  abstract  class   GoBaseAction     implements IObjectActionDelegate,
 			} else {
                 //	MessageDialog.openInformation(new Shell(), "GoExplore",
                 //			"Unable to run this command " );
-				GoExplorePlugin.log("Unable to run this command " );
+				GotoExplorePlugin.log("Unable to run this command " );
 				return null;
 			}
 		}
@@ -116,7 +116,7 @@ public  abstract  class   GoBaseAction     implements IObjectActionDelegate,
 
 			}
 		} catch (Throwable e) {
-			GoExplorePlugin.log(e);
+			GotoExplorePlugin.log(e);
 		}
 	}
 

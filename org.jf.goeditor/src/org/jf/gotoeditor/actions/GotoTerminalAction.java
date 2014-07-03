@@ -1,4 +1,4 @@
-package org.jf.goeditor.actions;
+package org.jf.gotoeditor.actions;
 
 import java.io.File;
 
@@ -6,18 +6,18 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
-import org.jf.goeditor.GoExplorePlugin;
+import org.jf.gotoeditor.GotoExplorePlugin;
 
 import util.CmdUtil;
 
-public class GoTerminalAction extends GoBaseAction {
+public class GotoTerminalAction extends GotoBaseAction {
 
 	/**
 	 * @see IActionDelegate#run(IAction)
 	 */
 	public void runAction(IAction action) {
 		try {
-			String cmdPattern = GoExplorePlugin.getDefault().getTerminal();
+			String cmdPattern = GotoExplorePlugin.getDefault().getTerminal();
             File selectedFile =getSelectedFile();
             if (selectedFile==null) {
                 MessageDialog.openInformation(new Shell(), "Goto Terminal",
@@ -26,7 +26,7 @@ public class GoTerminalAction extends GoBaseAction {
             }
 			CmdUtil.exec(cmdPattern,selectedFile );
 		} catch (Throwable e) {
-			GoExplorePlugin.log(e);
+			GotoExplorePlugin.log(e);
 		}
 	}
 

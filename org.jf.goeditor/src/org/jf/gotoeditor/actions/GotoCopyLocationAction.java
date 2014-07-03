@@ -1,4 +1,4 @@
-package org.jf.goeditor.actions;
+package org.jf.gotoeditor.actions;
 
 
 import org.eclipse.jdt.core.JavaModelException;
@@ -12,13 +12,13 @@ import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
-import org.jf.goeditor.CopyFullyQualifiedClassNameCore;
-import org.jf.goeditor.Messages;
+import org.jf.gotoeditor.CopyFullyQualifiedClassNameCore;
+import org.jf.gotoeditor.Messages;
 
 /**
  * @author Markus Gebhard
  */
-public abstract class GoCopyLocationAction implements IActionDelegate {
+public abstract class GotoCopyLocationAction implements IActionDelegate {
 
   private IWorkbenchPart activePart;
   private Clipboard clipboard;

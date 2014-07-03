@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.jf.goeditor;singleton=true
-Bundle-Version: 1.3.3
+Bundle-SymbolicName: org.jf.gotoeditor;singleton=true
+Bundle-Version: 1.3.4
 Bundle-Vendor: %providerName
 Bundle-ClassPath: .
-Bundle-Activator: org.jf.goeditor.GoExplorePlugin
+Bundle-Activator: org.jf.gotoeditor.GotoExplorePlugin
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime.compatibility,
  org.eclipse.core.resources,
@@ -14,4 +14,4 @@ Require-Bundle: org.eclipse.core.runtime.compatibility,
  org.eclipse.jdt.core,
  org.eclipse.core.expressions
 Eclipse-AutoStart: true
-Plugin-Class: org.jf.goeditor.GoExplorePlugin
+Plugin-Class: org.jf.gotoeditor.GotoExplorePlugin

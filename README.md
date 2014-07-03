@@ -1,22 +1,27 @@
-# Go Editor 
+# Goto Editor 
 This little plugin helps you to browse resources with the 'Explorer' of your platform from
+
 Eclipse package explorer or resource navigators and Open selected file with your
+
 system editor(customable).
-Just select a resource and launch the [Go ...] menu item from this resources context pop-up menu.
+
+Just select a resource and launch the [Goto ...] menu item from this resources context pop-up menu.
+
 You can setup your preferred browser or finder program in Eclipse preferences.
+
 This plugin has been tested on win32, linux and MacOSX panther and Tiger platforms.
+
 This product includes software developed by the EasyStruts project team (http://easystruts.sf.net).
 
-I add new function to it
-you can not only "Explorer" but alsa open a terminal ,and edit the selected File
-out of Eclipse with your preferred editor
-after you finished edit the file out of Eclipse and closed the editor (like
-emacs) ,Eclipse will refresh the project and it will refresh each 30s before the
-editor is closed.
+I add new function to it you can not only "Explorer" but alsa open a terminal
+,and edit the selected File out of Eclipse with your preferred editor after you
+finished edit the file out of Eclipse and closed the editor (like emacs)
+,Eclipse will refresh the project and it will refresh each 30s before the editor
+is closed.
 
 # screenshot
-![Go Explore](https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot1.jpg)
-![Go Explore](https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot2.gif)
+![Goto Editor](https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot1.jpg)
+![Goto Editor](https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot2.gif)
   
   
 # keybinding 
