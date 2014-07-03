@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<site>
-   <feature url="features/org.jf.goeditor.feature_1.3.3.jar" id="org.jf.goeditor.feature" version="1.3.3"/>
-   <category-def name="org.jf.goeditor.site" label="org.jf.goeditor.site"/>
-</site>

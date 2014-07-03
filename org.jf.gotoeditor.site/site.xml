@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.jf.gotoeditor.feature_1.3.4.jar" id="org.jf.gotoeditor.feature" version="1.3.4">
+      <category name="org.jf.gotoeditor.site"/>
+   </feature>
+   <category-def name="org.jf.gotoeditor.site" label="org.jf.gotoeditor.site"/>
+</site>
