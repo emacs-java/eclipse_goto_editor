@@ -73,7 +73,7 @@ public class CmdUtil {
 	 */
 	public static Process exec(String cmdPattern, File selectedFile) {
 		if (selectedFile == null) {
-			MessageDialog.openInformation(new Shell(), " Go Explorer",
+			MessageDialog.openInformation(new Shell(), " Goto Explorer",
 					"please select the file or dir to handled by");
 			return null;
 		}
@@ -81,7 +81,7 @@ public class CmdUtil {
 		try {
 			return Runtime.getRuntime().exec(cmd);
 		} catch (Throwable t) {
-			MessageDialog.openInformation(new Shell(), "GoExplore",
+			MessageDialog.openInformation(new Shell(), "Goto Explorer",
 					"Unable to execute " +cmdPattern);
 			GoExplorePlugin.log(t);
 		}

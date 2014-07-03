@@ -144,7 +144,7 @@ public class GoExplorePlugin extends AbstractUIPlugin {
         if (osName.indexOf("Windows") != -1) {
             defaultEditor = "notepad.exe %f";
         } else if (osName.indexOf("Mac") != -1) {
-            defaultEditor = "open %f";
+            defaultEditor = "open -e %f";
         } else if (osName.indexOf("nux") != -1) {
             String editor = System.getenv("EDITOR");
             if (editor == null || "".equals(editor))
@@ -157,7 +157,7 @@ public class GoExplorePlugin extends AbstractUIPlugin {
         if (osName.indexOf("Windows") != -1) {
             defaultTerminal = "cmd /C start cmd /K cd /d %d";
         } else if (osName.indexOf("Mac") != -1) {
-            defaultTerminal = "open %d";
+            defaultTerminal = "open -a Terminal %d";
         } else if (osName.indexOf("nux") != -1) {
             defaultTerminal = "urxvtc -cd  %d";
 

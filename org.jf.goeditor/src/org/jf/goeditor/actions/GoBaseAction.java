@@ -24,7 +24,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.jf.goeditor.GoExplorePlugin;
 
 public  abstract  class   GoBaseAction     implements IObjectActionDelegate,
-		IWorkbenchWindowActionDelegate   {
+                                                      IWorkbenchWindowActionDelegate   {
 
 	protected Object selected = null;
 
@@ -63,8 +63,8 @@ public  abstract  class   GoBaseAction     implements IObjectActionDelegate,
 
 				return file;
 			} else {
-				MessageDialog.openInformation(new Shell(), "GoExplore",
-						"Unable to run this command " );
+                //	MessageDialog.openInformation(new Shell(), "GoExplore",
+                //			"Unable to run this command " );
 				GoExplorePlugin.log("Unable to run this command " );
 				return null;
 			}
@@ -77,7 +77,7 @@ public  abstract  class   GoBaseAction     implements IObjectActionDelegate,
 	public IFile getActiveEditorFile() {
 		IFile file = null;
 		IEditorPart editor = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+            .getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		if (editor != null) {
 			IEditorInput input = editor.getEditorInput();
 			FileEditorInput i = (FileEditorInput) input;
@@ -95,22 +95,22 @@ public  abstract  class   GoBaseAction     implements IObjectActionDelegate,
 			this.selected = "unknown";
 			if (selection instanceof IStructuredSelection) {
 				adaptable = (IAdaptable) ((IStructuredSelection) selection)
-						.getFirstElement();
+                    .getFirstElement();
 				if (adaptable != null) {
 
 					this.selectedClass = adaptable.getClass();
 					if (adaptable instanceof IResource) {
 						this.selected = (IResource) adaptable;
 					} else if (adaptable instanceof PackageFragment
-							&& ((PackageFragment) adaptable)
-									.getPackageFragmentRoot() instanceof JarPackageFragmentRoot) {
+                               && ((PackageFragment) adaptable)
+                               .getPackageFragmentRoot() instanceof JarPackageFragmentRoot) {
 						this.selected = getJarFile(((PackageFragment) adaptable)
-								.getPackageFragmentRoot());
+                                                   .getPackageFragmentRoot());
 					} else if (adaptable instanceof JarPackageFragmentRoot) {
 						this.selected = getJarFile(adaptable);
 					} else {
 						this.selected = (IResource) adaptable
-								.getAdapter(IResource.class);
+                            .getAdapter(IResource.class);
 					}
 				}
 
@@ -125,7 +125,7 @@ public  abstract  class   GoBaseAction     implements IObjectActionDelegate,
 		File selected = (File) jpfr.getPath().makeAbsolute().toFile();
 		if (!((File) selected).exists()) {
 			File projectFile = new File(jpfr.getJavaProject().getProject()
-					.getLocation().toOSString());
+                                        .getLocation().toOSString());
 			selected = new File(projectFile.getParent() + selected.toString());
 		}
 		return selected;

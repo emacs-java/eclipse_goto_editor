@@ -9,6 +9,8 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Shell;
 import org.jf.goeditor.GoExplorePlugin;
 
 import util.CmdUtil;
@@ -24,6 +26,11 @@ public class GoEditorAction extends GoBaseAction {
 		try {
 			String cmdPattern = GoExplorePlugin.getDefault().getEditorCmd();
 			File selectedFile = getSelectedFile();
+            if (selectedFile==null) {
+            	MessageDialog.openInformation(new Shell(), "GotoEditor",
+    						"Unable to run this command (please select a file first)" );         	
+                return;
+            }
 
 			// usually editor in windows can't edit a dir ,so ,if you select a
 			// dir but file ,do noting
