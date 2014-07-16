@@ -22,7 +22,10 @@ is closed.
 # screenshot
 ![Goto Editor](https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot1.jpg)
 ![Goto Editor](https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot2.gif)
-  
+
+# https://github.com/emacs-java/eclipse_goto_editor/raw/master/org.jf.gotoeditor.site/plugins/org.jf.gotoeditor_1.3.4.jar 
+you can download this jar ,and put it into eclipse/dropin directory
+or update from http://emacs-java.github.io/eclipse_goto_editor/update-site
   
 # keybinding 
 使用方式   |           快捷键 
