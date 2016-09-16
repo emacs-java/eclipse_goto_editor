@@ -157,7 +157,7 @@ public class GotoExplorePlugin extends AbstractUIPlugin {
         if (osName.indexOf("Windows") != -1) {
             defaultTerminal = "cmd /C start cmd /K cd /d %d";
         } else if (osName.indexOf("Mac") != -1) {
-            defaultTerminal = "open -a Terminal %d";
+            defaultTerminal = "open -a iTerm %d";
         } else if (osName.indexOf("nux") != -1) {
             defaultTerminal = "urxvtc -cd  %d";
 
