@@ -14,6 +14,17 @@ after you finished edit the file out of Eclipse and closed the editor (like
 emacs) ,Eclipse will refresh the project and it will refresh each 30s before the
 editor is closed.
 
+* source
+  https://github.com/emacs-java/eclipse_goto_editor
+* Install
+https://github.com/emacs-java/eclipse_goto_editor/raw/master/org.jf.gotoeditor.site/plugins/org.jf.gotoeditor_1.3.5.jar
+you can download this jar ,and put it into eclipse/dropin directory
+or update from
+http://emacs-java.github.io/eclipse_goto_editor/update-site/
+
+for old eclipse you can download
+https://github.com/emacs-java/eclipse_goto_editor/raw/master/org.jf.gotoeditor.site/plugins/org.jf.gotoeditor_1.3.4.jar
+
 * screenshot
 https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot1.jpg
 https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot2.gif
