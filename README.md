@@ -1,15 +1,17 @@
 # Goto Editor 
-This little plugin helps you to browse resources with the 'Explorer' of your platform from
+This little plugin helps you to
 
-Eclipse package explorer or resource navigators and Open selected file with your
+1. Browse resources with the 'Explorer' of your platform from Eclipse package explorer or resource navigators
 
-system editor(customable).
+2. Open selected file with your system editor(customable).
+
+3. Open shell in current selected file path.
 
 Just select a resource and launch the [Goto ...] menu item from this resources context pop-up menu.
 
 You can setup your preferred browser or finder program in Eclipse preferences.
 
-This plugin has been tested on win32, linux and MacOSX panther and Tiger platforms.
+This plugin has been tested on win32, linux and MacOSX platforms.
 
 This product includes software developed by the EasyStruts project team (http://easystruts.sf.net).
 
@@ -23,9 +25,17 @@ is closed.
 ![Goto Editor](https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot1.jpg)
 ![Goto Editor](https://raw.githubusercontent.com/emacs-java/eclipse_goto_editor/master/screenshots/screenshot2.gif)
 
-# https://github.com/emacs-java/eclipse_goto_editor/raw/master/org.jf.gotoeditor.site/plugins/org.jf.gotoeditor_1.3.4.jar 
+# Install
+https://github.com/emacs-java/eclipse_goto_editor/raw/master/org.jf.gotoeditor.site/plugins/org.jf.gotoeditor_1.3.5.jar 
+
 you can download this jar ,and put it into eclipse/dropin directory
-or update from http://emacs-java.github.io/eclipse_goto_editor/update-site
+or update from
+
+http://emacs-java.github.io/eclipse_goto_editor/update-site/
+
+for old eclipse you can download 
+
+https://github.com/emacs-java/eclipse_goto_editor/raw/master/org.jf.gotoeditor.site/plugins/org.jf.gotoeditor_1.3.4.jar 
   
 # keybinding 
 使用方式   |           快捷键 
