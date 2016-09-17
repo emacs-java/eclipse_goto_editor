@@ -1,4 +1,6 @@
 # Goto Editor 
+https://marketplace.eclipse.org/content/gotoeditor
+
 This little plugin helps you to
 
 1. Browse resources with the 'Explorer' of your platform from Eclipse package explorer or resource navigators
